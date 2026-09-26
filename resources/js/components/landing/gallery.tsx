@@ -1,14 +1,10 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { GalleryItem } from "@/types/landing-page";
-
-// export type GalleryItem = {
-//     id: string | number;
-//     image: string;
-//     title: string;
-//     description: string;
-//     imageAlt?: string;
-// };
+import { useIsMobile } from "@/hooks/use-mobile";
+import { Button } from "../ui/button";
+import { Link } from "@inertiajs/react";
+import { gallery } from "@/routes";
 
 export type GallerySectionProps = {
     items: GalleryItem[];
@@ -36,6 +32,8 @@ export default function GallerySection({
     const closeLightbox = () => {
         setSelectedItem(null);
     };
+
+    const isMobile = useIsMobile();
 
     return (
         <>
@@ -71,9 +69,17 @@ export default function GallerySection({
                     </div>
 
                     {/* Gallery Grid */}
-                    <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3">
+                    <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-4">
                         {items.map((item, index) => {
-                            const isLargeItem = index === 0 || index === 4;
+                            if (isMobile && index > 3) {
+                                return null;
+                            } else if (!isMobile && index > 5) {
+                                return null;
+                            }
+
+                            const isLargeItem = isMobile
+                                ? false
+                                : index === 0 || index === 4;
 
                             return (
                                 <button
@@ -98,7 +104,7 @@ export default function GallerySection({
                                 >
                                     <img
                                         src={item.image}
-                                        alt={item.image_alt ?? item.title}
+                                        alt={item.imageAlt ?? item.title}
                                         loading={index < 3 ? "eager" : "lazy"}
                                         className={`w-full object-cover transition duration-700 group-hover:scale-105 ${
                                             isLargeItem
@@ -111,9 +117,9 @@ export default function GallerySection({
                                     <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-95" />
 
                                     {/* Content */}
-                                    <div className="absolute inset-x-0 bottom-0 p-6 text-white">
+                                    <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 text-white">
                                         <p
-                                            className="text-2xl font-semibold"
+                                            className="text-lg sm:text-xl md:text-2xl font-semibold"
                                             style={{
                                                 fontFamily:
                                                     "'Playfair Display', Georgia, serif",
@@ -122,7 +128,7 @@ export default function GallerySection({
                                             {item.title}
                                         </p>
 
-                                        <p className="mt-1 text-xs font-medium text-white/75">
+                                        <p className="mt-1 text-xs font-medium text-white/75 truncate">
                                             {item.description}
                                         </p>
                                     </div>
@@ -138,6 +144,20 @@ export default function GallerySection({
                                 </button>
                             );
                         })}
+                    </div>
+
+                    <div className="mt-10 flex justify-center">
+                        <Button
+                            asChild
+                            variant="outline"
+                            size="lg"
+                            className="text-white rounded-full transition-all bg-[#111827] hover:bg-[#0e1420] group hover:text-white/80"
+                        >
+                            <Link href={gallery()}>
+                                View All Gallery
+                                <ChevronRight className="size-4 group-hover:translate-x-0.5 duration-300" />
+                            </Link>
+                        </Button>
                     </div>
                 </div>
             </section>
@@ -166,7 +186,7 @@ export default function GallerySection({
                     >
                         <img
                             src={selectedItem.image}
-                            alt={selectedItem.image_alt ?? selectedItem.title}
+                            alt={selectedItem.imageAlt ?? selectedItem.title}
                             className="max-h-[75vh] w-auto max-w-full object-contain"
                         />
 

@@ -17,8 +17,13 @@ class LandingPageSeeder extends Seeder
 
         $siteSettings = [
             [
-                'key' => 'brand_name',
-                'value' => 'Miss Neka Nanny Bali',
+                'key' => 'brand_first_name',
+                'value' => 'Miss Neka',
+                'type' => 'string',
+            ],
+            [
+                'key' => 'brand_last_name',
+                'value' => 'Bali Nanny',
                 'type' => 'string',
             ],
             [
@@ -162,31 +167,37 @@ class LandingPageSeeder extends Seeder
             [
                 'label' => 'Home',
                 'href' => '#home',
+                'url' => '/home',
                 'sort_order' => 1,
             ],
             [
                 'label' => 'About Us',
                 'href' => '#about',
+                'url' => '/about',
                 'sort_order' => 2,
             ],
             [
                 'label' => 'Services',
                 'href' => '#services',
+                'url' => '/services',
                 'sort_order' => 3,
             ],
             [
                 'label' => 'Gallery',
                 'href' => '#gallery',
+                'url' => '/gallery',
                 'sort_order' => 4,
             ],
             [
                 'label' => 'Testimonials',
                 'href' => '#testimonials',
+                'url' => '/testimonials',
                 'sort_order' => 5,
             ],
             [
                 'label' => 'FAQ',
                 'href' => '#faq',
+                'url' => '/faq',
                 'sort_order' => 6,
             ],
         ];
@@ -196,6 +207,7 @@ class LandingPageSeeder extends Seeder
                 ['href' => $link['href']],
                 [
                     'label' => $link['label'],
+                    'url' => $link['url'],
                     'sort_order' => $link['sort_order'],
                     'is_active' => true,
                     'updated_at' => now(),

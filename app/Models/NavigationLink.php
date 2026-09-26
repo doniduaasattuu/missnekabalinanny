@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 #[Fillable([
     'label',
+    'url',
     'href',
     'sort_order',
     'is_active',

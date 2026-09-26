@@ -4,6 +4,7 @@ import {
     Service,
     SocialLink,
 } from "@/types/landing-page";
+import { usePage } from "@inertiajs/react";
 import {
     Facebook,
     Heart,
@@ -20,10 +21,10 @@ import {
 export type FooterSectionProps = {
     brandName?: string;
     brandDescription?: string;
-    navigationLinks: NavigationLink[];
-    services: Service[];
-    socialLinks?: SocialLink[];
-    contact: FooterContact;
+    // navigationLinks: NavigationLink[];
+    // services: Service[];
+    // socialLinks?: SocialLink[];
+    // contact: FooterContact;
     coverageAreas?: string[];
     copyrightName?: string;
     privacyHref?: string;
@@ -39,12 +40,6 @@ const socialIconMap = {
 } as const;
 
 export default function Footer({
-    brandName = "Miss Neka Nanny Bali",
-    brandDescription = "Professional, caring childcare for families visiting Bali. Creating safe and memorable experiences for your little ones while you enjoy everything the Island of the Gods has to offer.",
-    navigationLinks,
-    services,
-    socialLinks = [],
-    contact,
     coverageAreas = [
         "Canggu",
         "Seminyak",
@@ -59,6 +54,14 @@ export default function Footer({
     termsHref = "#",
 }: FooterSectionProps) {
     const currentYear = new Date().getFullYear();
+    const props = usePage().props;
+    const socialLinks: SocialLink[] = props.socialLinks;
+    const navigationLinks: NavigationLink[] = props.navigationLinks;
+    const services: Service[] = props.services;
+    const contact: FooterContact = props.footerContact;
+    const brand = props.brand;
+    const brandName = brand.fullName;
+    const brandDescription = brand.description;
 
     return (
         <footer className="bg-[#292524] text-[#FFF9F5]">

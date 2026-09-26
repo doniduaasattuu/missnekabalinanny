@@ -98,7 +98,7 @@ export default function HeroSection({
             ))}
 
             {/* Hero Content */}
-            <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-20 sm:px-8 lg:px-10 lg:pb-28">
+            <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-24 sm:px-8 lg:px-10 lg:pb-28">
                 <div className="max-w-3xl text-white">
                     {/* Eyebrow */}
                     <div className="mb-6 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-pink-200">
@@ -144,10 +144,10 @@ export default function HeroSection({
                         <button
                             type="button"
                             onClick={handleExploreServices}
-                            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-white/10 px-7 py-4 text-sm font-bold text-white backdrop-blur-sm transition-all hover:bg-white hover:text-[#111827] focus:outline-none focus:ring-2 focus:ring-white/60"
+                            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-white/10 px-7 py-4 text-sm font-bold text-white backdrop-blur-sm transition-all hover:bg-white hover:text-[#111827] focus:outline-none focus:ring-2 focus:ring-white/60 group"
                         >
                             Explore Services
-                            <ChevronRight className="h-4 w-4" />
+                            <ChevronRight className="h-4 w-4 group-hover:translate-x-0.5 duration-300 transition-smooth" />
                         </button>
                     </div>
 
@@ -177,10 +177,10 @@ export default function HeroSection({
                     <button
                         type="button"
                         onClick={previousSlide}
-                        className="flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-black/20 text-white backdrop-blur-md transition-colors hover:bg-white hover:text-[#111827] focus:outline-none focus:ring-2 focus:ring-white/70"
+                        className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-white/30 bg-black/20 text-white backdrop-blur-md transition-colors hover:bg-white hover:text-[#111827] focus:outline-none focus:ring-2 focus:ring-white/70"
                         aria-label="Previous hero slide"
                     >
-                        <ChevronLeft className="h-5 w-5" aria-hidden="true" />
+                        <ChevronLeft className="h-4 w-4" aria-hidden="true" />
                     </button>
 
                     {/* Indicators */}
@@ -209,7 +209,7 @@ export default function HeroSection({
                     <button
                         type="button"
                         onClick={nextSlide}
-                        className="flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-black/20 text-white backdrop-blur-md transition-colors hover:bg-white hover:text-[#111827] focus:outline-none focus:ring-2 focus:ring-white/70"
+                        className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-white/30 bg-black/20 text-white backdrop-blur-md transition-colors hover:bg-white hover:text-[#111827] focus:outline-none focus:ring-2 focus:ring-white/70"
                         aria-label="Next hero slide"
                     >
                         <ChevronRight className="h-5 w-5" aria-hidden="true" />

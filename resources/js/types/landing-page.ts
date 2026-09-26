@@ -17,6 +17,7 @@ export interface NavigationLink {
     id: number;
     label: string;
     href: string;
+    url: string;
     sort_order: number;
     is_active: boolean;
     created_at: string;
@@ -76,11 +77,7 @@ export interface GalleryItem {
     image: string;
     title: string;
     description: string | null;
-    image_alt: string | null;
-    sort_order: number;
-    is_active: boolean;
-    created_at: string;
-    updated_at: string;
+    imageAlt: string | null;
 }
 
 export interface Testimonial {
@@ -95,6 +92,18 @@ export interface Testimonial {
     is_active: boolean;
     created_at: string;
     updated_at: string;
+}
+
+export interface About {
+    image: string;
+    imageAlt: string;
+    video: string;
+    videoAlt: string;
+    paragraphs: string[];
+    features: AboutFeature[];
+    socialLinks: SocialLink[];
+    quote: string;
+    quoteAuthor: string;
 }
 
 export type AboutFeatureIcon = "shield-check" | "check" | "heart" | "users";

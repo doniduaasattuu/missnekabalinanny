@@ -130,7 +130,8 @@ export default function ServicesSection({
                                     href={whatsappUrl}
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#DB2777] transition-colors hover:text-[#BE185D]"
+                                    // className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-[#DB2777] transition-colors hover:text-[#BE185D]"
+                                    className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-pink-500 transition-colors hover:text-pink-600"
                                     aria-label={`Enquire about ${service.title}`}
                                 >
                                     Enquire about this service
@@ -176,7 +177,7 @@ export default function ServicesSection({
                             href={whatsappUrl}
                             target="_blank"
                             rel="noreferrer"
-                            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-[#111827] transition-colors hover:bg-[#FCE7F3] focus:outline-none focus:ring-2 focus:ring-pink-300"
+                            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-[#111827] transition-colors hover:bg-[#FCE7F3] focus:outline-none focus:ring-2 focus:ring-pink-300 animate-bounce"
                         >
                             <MessageCircle
                                 className="h-4 w-4"

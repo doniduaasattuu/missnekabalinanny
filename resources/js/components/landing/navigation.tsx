@@ -1,21 +1,27 @@
 import { NavigationLink } from "@/types/landing-page";
-import { Heart, Menu, MessageCircle, X } from "lucide-react";
+import { Menu, MessageCircle, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import Logo from "./logo";
+import { router, usePage } from "@inertiajs/react";
+import { home } from "@/routes";
+import { useCurrentUrl } from "@/hooks/use-current-url";
 
-export type NavigationProps = {
-    brandName?: string;
-    brandSubtitle?: string;
-    navigationItems: NavigationLink[];
-    whatsappUrl: string;
-};
+export default function Navigation() {
+    const props = usePage().props;
 
-export default function Navigation({
-    brandName = "Miss Neka",
-    brandSubtitle = "Nanny Bali",
-    navigationItems,
-    whatsappUrl,
-}: NavigationProps) {
+    const fullName = props.brand.fullName;
+    const firstName = props.brand.firstName;
+    const lastName = props.brand.lastName;
+
+    const navigationItems: NavigationLink[] = props.navigationLinks;
+    const whatsappUrl = props.whatsappUrl;
+
+    if (!navigationItems) {
+        return null;
+    }
+
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const isCurrentUrl = useCurrentUrl();
 
     useEffect(() => {
         const handleEscape = (event: KeyboardEvent) => {
@@ -56,16 +62,11 @@ export default function Navigation({
                 {/* Brand */}
                 <button
                     type="button"
-                    onClick={() => handleNavigation("#home")}
-                    className="group flex items-center gap-3 text-left"
-                    aria-label={`Go to ${brandName} homepage`}
+                    onClick={() => router.get(home())}
+                    className="group flex items-center gap-3 text-left cursor-pointer"
+                    aria-label={`Go to ${fullName} homepage`}
                 >
-                    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#FDF2F4] text-[#DB2777] transition-colors group-hover:bg-[#FCE7F3]">
-                        <Heart
-                            className="h-5 w-5 fill-current"
-                            strokeWidth={1.8}
-                        />
-                    </span>
+                    <Logo />
 
                     <span className="leading-tight">
                         <span
@@ -75,11 +76,11 @@ export default function Navigation({
                                     "'Playfair Display', Georgia, serif",
                             }}
                         >
-                            {brandName}
+                            {firstName}
                         </span>
 
                         <span className="block text-[10px] font-semibold uppercase tracking-[0.22em] text-[#DB2777]">
-                            {brandSubtitle}
+                            {lastName}
                         </span>
                     </span>
                 </button>
@@ -94,7 +95,9 @@ export default function Navigation({
                             key={item.href}
                             type="button"
                             onClick={() => handleNavigation(item.href)}
-                            className="text-[13px] font-semibold text-gray-600 transition-colors hover:text-[#DB2777]"
+                            className={
+                                "text-[13px] font-semibold text-gray-600 transition-colors hover:text-[#DB2777]"
+                            }
                         >
                             {item.label}
                         </button>

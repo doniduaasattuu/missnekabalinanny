@@ -41,7 +41,7 @@ export default function TestimonialsSection({
     title = "Loved by Families",
     highlightedWord = "Worldwide",
     ratingLabel = "5.0 average rating",
-    speed = 100,
+    speed = 160,
 }: TestimonialsSectionProps) {
     const [isPaused, setIsPaused] = useState(false);
 
@@ -149,16 +149,6 @@ export default function TestimonialsSection({
 
                             {/* Author */}
                             <div className="mt-6 flex items-center gap-3 border-t border-[#514B48] pt-5">
-                                {/* <img
-                                    src={testimonial.avatar}
-                                    alt={
-                                        testimonial.avatar_alt ??
-                                        testimonial.name
-                                    }
-                                    className="size-11 rounded-full object-cover"
-                                    loading="lazy"
-                                /> */}
-
                                 <Avatar>
                                     <AvatarImage
                                         src={testimonial.avatar ?? ""}

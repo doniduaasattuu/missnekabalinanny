@@ -11,6 +11,7 @@ import {
     Youtube,
 } from "lucide-react";
 import AboutVideoSection from "./about-video";
+import Logo from "./logo";
 
 export type AboutSectionProps = {
     image: string;
@@ -105,7 +106,7 @@ export default function AboutSection({
                                     return (
                                         <div
                                             key={feature.id}
-                                            className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
+                                            className="rounded-2xl border border-pink-200/30 bg-pink-100/10 p-5 shadow-sm transition-shadow hover:shadow-md"
                                         >
                                             <Icon
                                                 className="h-5 w-5 text-[#DB2777]"
@@ -178,7 +179,7 @@ export default function AboutSection({
                                     aria-hidden="true"
                                     className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#FDF2F4] text-[#DB2777]"
                                 >
-                                    <Heart className="h-5 w-5 fill-current" />
+                                    <Logo />
                                 </div>
 
                                 <div>

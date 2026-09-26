@@ -38,6 +38,7 @@ return new class extends Migration
 
             $table->string('label');
             $table->string('href');
+            $table->string('url');
 
             $table->unsignedInteger('sort_order')->default(0);
             $table->boolean('is_active')->default(true);

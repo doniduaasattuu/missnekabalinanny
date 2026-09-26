@@ -16,7 +16,6 @@ import {
     FooterContact,
     GalleryItem,
     HeroSlide,
-    NavigationLink,
     Service,
     ServicesBanner,
     SocialLink,
@@ -50,14 +49,12 @@ export type LandingPageProps = {
 
     faqItems: FaqItem[];
 
-    navigationLinks: NavigationLink[];
     footerContact: FooterContact;
     coverageAreas?: string[];
 };
 
 export default function LandingPage({
     whatsappUrl,
-    navigationLinks,
     heroSlides,
     trustBadges,
     services,
@@ -68,15 +65,9 @@ export default function LandingPage({
     aboutVideo,
     faqItems,
     footerContact,
-    coverageAreas,
 }: LandingPageProps) {
     return (
         <div className="min-h-screen bg-[#FFF9F5] text-[#292524]">
-            <Navigation
-                navigationItems={navigationLinks}
-                whatsappUrl={whatsappUrl}
-            />
-
             <main>
                 <HeroSection slides={heroSlides} whatsappUrl={whatsappUrl} />
 
@@ -105,14 +96,6 @@ export default function LandingPage({
 
                 <FAQSection items={faqItems} whatsappUrl={whatsappUrl} />
             </main>
-
-            <Footer
-                navigationLinks={navigationLinks}
-                services={services}
-                socialLinks={about.socialLinks}
-                contact={footerContact}
-                coverageAreas={coverageAreas}
-            />
         </div>
     );
 }

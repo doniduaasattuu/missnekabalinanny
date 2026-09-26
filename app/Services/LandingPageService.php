@@ -7,7 +7,6 @@ use App\Models\CoverageArea;
 use App\Models\FaqItem;
 use App\Models\GalleryItem;
 use App\Models\HeroSlide;
-use App\Models\NavigationLink;
 use App\Models\Service;
 use App\Models\SiteSetting;
 use App\Models\SocialLink;
@@ -19,8 +18,7 @@ class LandingPageService
     public function getData(): array
     {
         return [
-            'whatsappUrl' => $this->setting('whatsapp_url'),
-            'navigationLinks' => $this->getNavigationLinks(),
+            'whatsappUrl' => $this->getWhatsappUrl(),
             'heroSlides' => $this->getHeroSlides(),
             'trustBadges' => $this->getTrustBadges(),
             'services' => $this->getServices(),
@@ -40,37 +38,39 @@ class LandingPageService
             ],
 
             'aboutVideo' => $this->getAboutVideo(),
-
             'faqItems' => $this->getFaqItems(),
             'footerContact' => $this->getFooterContact(),
             'coverageAreas' => $this->getCoverageAreas(),
         ];
     }
 
-    private function settings()
+    public function settings()
     {
         return SiteSetting::query()
             ->pluck('value', 'key');
     }
 
-    private function setting(string $key, mixed $default = null): mixed
+    public function setting(string $key, mixed $default = null): mixed
     {
         return $this->settings()->get($key, $default);
     }
 
-    private function getNavigationLinks()
+    public function getBrand()
     {
-        return NavigationLink::query()
-            ->where('is_active', true)
-            ->orderBy('sort_order')
-            ->get([
-                'id',
-                'label',
-                'href',
-            ]);
+        return [
+            'fullName' =>  $this->setting('brand_first_name') . ' ' . $this->setting('brand_last_name'),
+            'firstName' =>  $this->setting('brand_first_name'),
+            'lastName' =>  $this->setting('brand_last_name'),
+            'subtitle' =>  $this->setting('brand_subtitle'),
+            'description' => $this->setting('brand_description'),
+        ];
+    }
+    public function getWhatsappUrl()
+    {
+        return $this->setting('whatsapp_url');
     }
 
-    private function getHeroSlides()
+    public function getHeroSlides()
     {
         return HeroSlide::query()
             ->where('is_active', true)
@@ -96,7 +96,7 @@ class LandingPageService
             ->values();
     }
 
-    private function getTrustBadges()
+    public function getTrustBadges()
     {
         return TrustBadge::query()
             ->where('is_active', true)
@@ -109,7 +109,7 @@ class LandingPageService
             ]);
     }
 
-    private function getServices()
+    public function getServices()
     {
         return Service::query()
             ->where('is_active', true)
@@ -125,7 +125,7 @@ class LandingPageService
             ]);
     }
 
-    private function getServicesBanner(): array
+    public function getServicesBanner(): array
     {
         return [
             'title' => $this->setting('services_banner_title'),
@@ -133,7 +133,7 @@ class LandingPageService
         ];
     }
 
-    private function getGalleryItems()
+    public function getGalleryItems()
     {
         return GalleryItem::query()
             ->where('is_active', true)
@@ -155,7 +155,7 @@ class LandingPageService
             ->values();
     }
 
-    private function getTestimonials()
+    public function getTestimonials()
     {
         return Testimonial::query()
             ->where('is_active', true)
@@ -181,7 +181,7 @@ class LandingPageService
             ->values();
     }
 
-    private function getAboutParagraphs(): array
+    public function getAboutParagraphs(): array
     {
         return [
             $this->setting('about_paragraph_1'),
@@ -189,7 +189,7 @@ class LandingPageService
         ];
     }
 
-    private function getAboutFeatures()
+    public function getAboutFeatures()
     {
         return AboutFeature::query()
             ->where('is_active', true)
@@ -202,7 +202,7 @@ class LandingPageService
             ]);
     }
 
-    private function getSocialLinks()
+    public function getSocialLinks()
     {
         return SocialLink::query()
             ->where('is_active', true)
@@ -215,7 +215,7 @@ class LandingPageService
             ]);
     }
 
-    private function getFaqItems()
+    public function getFaqItems()
     {
         return FaqItem::query()
             ->where('is_active', true)
@@ -227,7 +227,7 @@ class LandingPageService
             ]);
     }
 
-    private function getFooterServices()
+    public function getFooterServices()
     {
         return Service::query()
             ->where('is_active', true)
@@ -244,7 +244,7 @@ class LandingPageService
             ->values();
     }
 
-    private function getFooterContact(): array
+    public function getFooterContact(): array
     {
         return [
             'whatsapp' => $this->setting('whatsapp'),
@@ -254,7 +254,7 @@ class LandingPageService
         ];
     }
 
-    private function getCoverageAreas(): array
+    public function getCoverageAreas(): array
     {
         return CoverageArea::query()
             ->where('is_active', true)
@@ -264,7 +264,7 @@ class LandingPageService
             ->all();
     }
 
-    private function getAboutVideo()
+    public function getAboutVideo()
     {
         return [
             'id' => $this->setting('about_video_id'),
