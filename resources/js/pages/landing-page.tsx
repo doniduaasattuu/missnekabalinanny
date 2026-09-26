@@ -1,27 +1,28 @@
+import AboutSection, { AboutSectionProps } from "@/components/landing/about";
+import FAQSection from "@/components/landing/faq";
+import Footer from "@/components/landing/footer";
+import GallerySection from "@/components/landing/gallery";
+import HeroSection from "@/components/landing/hero";
 import Navigation from "@/components/landing/navigation";
-import HeroSection, { type HeroSlide } from "@/components/landing/hero";
-import TrustBadges, {
-    type TrustBadge,
-} from "@/components/landing/trust-badges";
-import ServicesSection, {
-    type Service,
-    type ServicesBanner,
-} from "@/components/landing/services";
-import GallerySection, { type GalleryItem } from "@/components/landing/gallery";
-import TestimonialsSection, {
-    type Testimonial,
-} from "@/components/landing/testimonials";
-import AboutSection, {
-    type AboutFeature,
-    type SocialLink,
-} from "@/components/landing/about";
-import FAQSection, { type FAQItem } from "@/components/landing/faq";
-import Footer, {
-    type FooterLink,
-    type FooterService,
-    type FooterSocialLink,
-    type FooterContact,
-} from "@/components/landing/footer";
+import ServicesSection from "@/components/landing/services";
+import TestimonialsSection from "@/components/landing/testimonials";
+import TrustBadges from "@/components/landing/trust-badges";
+import AboutVideoSection from "@/components/landing/about-video";
+
+import {
+    AboutFeature,
+    AboutVideo,
+    FaqItem,
+    FooterContact,
+    GalleryItem,
+    HeroSlide,
+    NavigationLink,
+    Service,
+    ServicesBanner,
+    SocialLink,
+    Testimonial,
+    TrustBadge,
+} from "@/types/landing-page";
 
 export type LandingPageProps = {
     whatsappUrl: string;
@@ -33,48 +34,48 @@ export type LandingPageProps = {
     galleryItems: GalleryItem[];
     testimonials: Testimonial[];
 
-    aboutImage: string;
-    aboutImageAlt?: string;
-    aboutFeatures: AboutFeature[];
-    aboutParagraphs: string[];
-    aboutSocialLinks?: SocialLink[];
-    aboutQuote?: string;
-    aboutQuoteAuthor?: string;
+    about: {
+        image: string;
+        imageAlt?: string;
+        video?: string;
+        videoAlt?: string;
+        paragraphs: string[];
+        features: AboutFeature[];
+        socialLinks: SocialLink[];
+        quote?: string;
+        quoteAuthor?: string;
+    };
 
-    faqItems: FAQItem[];
+    aboutVideo: AboutVideo;
 
-    navigationLinks: FooterLink[];
-    footerServices: FooterService[];
-    footerSocialLinks?: FooterSocialLink[];
+    faqItems: FaqItem[];
+
+    navigationLinks: NavigationLink[];
     footerContact: FooterContact;
     coverageAreas?: string[];
 };
 
 export default function LandingPage({
     whatsappUrl,
+    navigationLinks,
     heroSlides,
     trustBadges,
     services,
     servicesBanner,
     galleryItems,
     testimonials,
-    aboutImage,
-    aboutImageAlt,
-    aboutFeatures,
-    aboutParagraphs,
-    aboutSocialLinks,
-    aboutQuote,
-    aboutQuoteAuthor,
+    about,
+    aboutVideo,
     faqItems,
-    navigationLinks,
-    footerServices,
-    footerSocialLinks,
     footerContact,
     coverageAreas,
 }: LandingPageProps) {
     return (
         <div className="min-h-screen bg-[#FFF9F5] text-[#292524]">
-            <Navigation whatsappUrl={whatsappUrl} />
+            <Navigation
+                navigationItems={navigationLinks}
+                whatsappUrl={whatsappUrl}
+            />
 
             <main>
                 <HeroSection slides={heroSlides} whatsappUrl={whatsappUrl} />
@@ -92,13 +93,14 @@ export default function LandingPage({
                 <TestimonialsSection testimonials={testimonials} />
 
                 <AboutSection
-                    image={aboutImage}
-                    imageAlt={aboutImageAlt}
-                    features={aboutFeatures}
-                    paragraphs={aboutParagraphs}
-                    socialLinks={aboutSocialLinks}
-                    quote={aboutQuote}
-                    quoteAuthor={aboutQuoteAuthor}
+                    image={about.image}
+                    imageAlt={about.imageAlt}
+                    features={about.features}
+                    paragraphs={about.paragraphs}
+                    socialLinks={about.socialLinks}
+                    quote={about.quote}
+                    quoteAuthor={about.quoteAuthor}
+                    video={aboutVideo}
                 />
 
                 <FAQSection items={faqItems} whatsappUrl={whatsappUrl} />
@@ -106,8 +108,8 @@ export default function LandingPage({
 
             <Footer
                 navigationLinks={navigationLinks}
-                services={footerServices}
-                socialLinks={footerSocialLinks}
+                services={services}
+                socialLinks={about.socialLinks}
                 contact={footerContact}
                 coverageAreas={coverageAreas}
             />

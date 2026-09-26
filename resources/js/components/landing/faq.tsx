@@ -1,14 +1,9 @@
-import { useEffect, useState } from 'react';
-import { ChevronDown, MessageCircle } from 'lucide-react';
-
-export type FAQItem = {
-    id: string | number;
-    question: string;
-    answer: string;
-};
+import { useEffect, useState } from "react";
+import { ChevronDown, MessageCircle } from "lucide-react";
+import { FaqItem } from "@/types/landing-page";
 
 export type FAQSectionProps = {
-    items: FAQItem[];
+    items: FaqItem[];
     whatsappUrl: string;
     eyebrow?: string;
     title?: string;
@@ -22,12 +17,12 @@ export type FAQSectionProps = {
 export default function FAQSection({
     items,
     whatsappUrl,
-    eyebrow = 'Frequently Asked Questions',
-    title = 'Everything You Need to Know',
-    description = 'We understand that every family has different needs. Here are answers to some of the questions families ask us most often.',
-    ctaTitle = 'Have a specific question about your family?',
-    ctaDescription = 'We are happy to help you find the right childcare arrangement for your Bali stay.',
-    ctaLabel = 'Chat With Us on WhatsApp',
+    eyebrow = "Frequently Asked Questions",
+    title = "Everything You Need to Know",
+    description = "We understand that every family has different needs. Here are answers to some of the questions families ask us most often.",
+    ctaTitle = "Have a specific question about your family?",
+    ctaDescription = "We are happy to help you find the right childcare arrangement for your Bali stay.",
+    ctaLabel = "Chat With Us on WhatsApp",
     defaultOpenIndex = 0,
 }: FAQSectionProps) {
     const getInitialIndex = () => {
@@ -62,9 +57,7 @@ export default function FAQSection({
     }, [items.length, defaultOpenIndex]);
 
     const toggleItem = (index: number) => {
-        setOpenIndex((currentIndex) =>
-            currentIndex === index ? null : index,
-        );
+        setOpenIndex((currentIndex) => (currentIndex === index ? null : index));
     };
 
     return (
@@ -112,7 +105,7 @@ export default function FAQSection({
 
                                     <span
                                         className={`flex size-8 shrink-0 items-center justify-center rounded-full bg-[#FBECEF] text-[#C9828D] transition-transform duration-300 ${
-                                            isOpen ? 'rotate-180' : ''
+                                            isOpen ? "rotate-180" : ""
                                         }`}
                                     >
                                         <ChevronDown
@@ -128,8 +121,8 @@ export default function FAQSection({
                                     aria-labelledby={triggerId}
                                     className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
                                         isOpen
-                                            ? 'grid-rows-[1fr]'
-                                            : 'grid-rows-[0fr]'
+                                            ? "grid-rows-[1fr]"
+                                            : "grid-rows-[0fr]"
                                     }`}
                                 >
                                     <div className="overflow-hidden">

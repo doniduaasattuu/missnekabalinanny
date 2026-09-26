@@ -1,14 +1,6 @@
+import { Testimonial } from "@/types/landing-page";
 import { useEffect, useState } from "react";
-
-export type Testimonial = {
-    id: string | number;
-    name: string;
-    country: string;
-    quote: string;
-    avatar: string;
-    avatarAlt?: string;
-    rating: number;
-};
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 export type TestimonialsSectionProps = {
     testimonials: Testimonial[];
@@ -157,15 +149,29 @@ export default function TestimonialsSection({
 
                             {/* Author */}
                             <div className="mt-6 flex items-center gap-3 border-t border-[#514B48] pt-5">
-                                <img
+                                {/* <img
                                     src={testimonial.avatar}
                                     alt={
-                                        testimonial.avatarAlt ??
+                                        testimonial.avatar_alt ??
                                         testimonial.name
                                     }
                                     className="size-11 rounded-full object-cover"
                                     loading="lazy"
-                                />
+                                /> */}
+
+                                <Avatar>
+                                    <AvatarImage
+                                        src={testimonial.avatar ?? ""}
+                                        alt={
+                                            testimonial.avatar_alt ??
+                                            testimonial.name
+                                        }
+                                        className="object-cover"
+                                    />
+                                    <AvatarFallback>
+                                        {testimonial.name[0].toUpperCase()}
+                                    </AvatarFallback>
+                                </Avatar>
 
                                 <div className="min-w-0">
                                     <p className="truncate text-sm font-semibold text-[#FFF9F5]">

@@ -1,3 +1,4 @@
+import { TrustBadge } from "@/types/landing-page";
 import {
     Check,
     Clock3,
@@ -5,15 +6,6 @@ import {
     Users,
     type LucideIcon,
 } from "lucide-react";
-
-export type TrustBadgeIcon = "shield-check" | "check" | "clock" | "users";
-
-export type TrustBadge = {
-    id: string | number;
-    value: string;
-    label: string;
-    icon: TrustBadgeIcon;
-};
 
 const iconMap = {
     "shield-check": ShieldCheck,

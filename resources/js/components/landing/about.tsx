@@ -1,3 +1,4 @@
+import { AboutFeature, AboutVideo, SocialLink } from "@/types/landing-page";
 import {
     Check,
     Facebook,
@@ -7,37 +8,22 @@ import {
     ShieldCheck,
     Users,
     Twitter,
+    Youtube,
 } from "lucide-react";
-
-export type AboutFeatureIcon = "shield-check" | "check" | "heart" | "users";
-
-export type AboutFeature = {
-    id: string | number;
-    title: string;
-    description: string;
-    icon: AboutFeatureIcon;
-};
-
-export type SocialPlatform = "instagram" | "facebook" | "tiktok" | "x";
-
-export type SocialLink = {
-    id: string | number;
-    platform: SocialPlatform;
-    label: string;
-    url: string;
-};
+import AboutVideoSection from "./about-video";
 
 export type AboutSectionProps = {
     image: string;
     imageAlt?: string;
     features: AboutFeature[];
-    socialLinks?: SocialLink[];
+    socialLinks: SocialLink[];
     eyebrow?: string;
     title?: string;
     highlightedWord?: string;
     paragraphs: string[];
     quote?: string;
     quoteAuthor?: string;
+    video: AboutVideo;
 };
 
 const featureIconMap = {
@@ -52,46 +38,22 @@ const socialIconMap = {
     facebook: Facebook,
     tiktok: PlayCircle,
     x: Twitter,
+    youtube: Youtube,
 } as const;
-
-const defaultSocialLinks: SocialLink[] = [
-    {
-        id: "instagram",
-        platform: "instagram",
-        label: "Instagram",
-        url: "https://instagram.com/missnekanannybali",
-    },
-    {
-        id: "facebook",
-        platform: "facebook",
-        label: "Facebook",
-        url: "https://facebook.com/missnekanannybali",
-    },
-    {
-        id: "tiktok",
-        platform: "tiktok",
-        label: "TikTok",
-        url: "https://tiktok.com/@missnekanannybali",
-    },
-    {
-        id: "x",
-        platform: "x",
-        label: "X",
-        url: "https://x.com/missnekananny",
-    },
-];
 
 export default function AboutSection({
     image,
     imageAlt = "Family enjoying quality time in Bali",
     features,
-    socialLinks = defaultSocialLinks,
+    socialLinks,
     eyebrow = "About Miss Neka",
     title = "Caring for your children like they are",
     highlightedWord = "our own.",
     paragraphs,
     quote = "Care you can feel.",
     quoteAuthor = "The Miss Neka promise",
+
+    video,
 }: AboutSectionProps) {
     if (!paragraphs.length) {
         return null;
@@ -102,7 +64,7 @@ export default function AboutSection({
             id="about"
             className="scroll-mt-20 px-5 py-24 sm:px-8 lg:px-10 lg:py-32 bg-white"
         >
-            <div className="mx-auto max-w-7xl">
+            <div className="mx-auto max-w-7xl space-y-20">
                 <div className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
                     {/* Content */}
                     <div>
@@ -238,6 +200,8 @@ export default function AboutSection({
                         </div>
                     </div>
                 </div>
+
+                <AboutVideoSection video={video} />
             </div>
         </section>
     );

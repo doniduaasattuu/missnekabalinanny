@@ -1,31 +1,18 @@
+import { NavigationLink } from "@/types/landing-page";
 import { Heart, Menu, MessageCircle, X } from "lucide-react";
 import { useEffect, useState } from "react";
-
-export type NavigationItem = {
-    label: string;
-    href: string;
-};
 
 export type NavigationProps = {
     brandName?: string;
     brandSubtitle?: string;
-    navigationItems?: NavigationItem[];
+    navigationItems: NavigationLink[];
     whatsappUrl: string;
 };
-
-const defaultNavigationItems: NavigationItem[] = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Gallery", href: "#gallery" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "FAQ", href: "#faq" },
-];
 
 export default function Navigation({
     brandName = "Miss Neka",
     brandSubtitle = "Nanny Bali",
-    navigationItems = defaultNavigationItems,
+    navigationItems,
     whatsappUrl,
 }: NavigationProps) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

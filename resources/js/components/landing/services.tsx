@@ -1,3 +1,4 @@
+import { Service, ServiceIcon, ServicesBanner } from "@/types/landing-page";
 import {
     Check,
     ChevronRight,
@@ -10,23 +11,8 @@ import {
     type LucideIcon,
 } from "lucide-react";
 
-export type ServiceIcon = "sun" | "moon" | "heart" | "map-pin";
-
-export type Service = {
-    id: string | number;
-    title: string;
-    description: string;
-    features: string[];
-    icon: ServiceIcon;
-};
-
-export type ServicesBanner = {
-    title: string;
-    description: string;
-};
-
 export type ServicesSectionProps = {
-    services?: Service[];
+    services: Service[];
     whatsappUrl: string;
     eyebrow?: string;
     title?: string;
@@ -41,63 +27,8 @@ const iconMap: Record<ServiceIcon, LucideIcon> = {
     "map-pin": MapPin,
 };
 
-const defaultServices: Service[] = [
-    {
-        id: 1,
-        icon: "sun",
-        title: "Full-Day Nanny",
-        description:
-            "Reliable daytime childcare designed around your family's holiday schedule.",
-        features: [
-            "Personalised daily routine",
-            "Meals & snacks assistance",
-            "Play & educational activities",
-            "Outdoor supervision",
-        ],
-    },
-    {
-        id: 2,
-        icon: "moon",
-        title: "Night-Time Babysitting",
-        description:
-            "Enjoy a peaceful evening while your children remain safe, comfortable, and cared for.",
-        features: [
-            "Hotel & villa babysitting",
-            "Bedtime routine",
-            "Sleep supervision",
-            "Flexible evening hours",
-        ],
-    },
-    {
-        id: 3,
-        icon: "heart",
-        title: "Event & Wedding Nanny",
-        description:
-            "Professional childcare support so parents can fully enjoy their special moments.",
-        features: [
-            "Wedding & event childcare",
-            "Ceremony supervision",
-            "Children's activities",
-            "Dedicated one-on-one care",
-        ],
-    },
-    {
-        id: 4,
-        icon: "map-pin",
-        title: "Travel & Resort Companion",
-        description:
-            "A trusted childcare companion for families exploring Bali beyond the hotel.",
-        features: [
-            "Resort & villa support",
-            "Family excursions",
-            "Pool & beach supervision",
-            "Flexible travel assistance",
-        ],
-    },
-];
-
 export default function ServicesSection({
-    services = defaultServices,
+    services,
     whatsappUrl,
     eyebrow = "Our Services",
     title = "Childcare designed around your Bali experience.",

@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { GalleryItem } from "@/types/landing-page";
 
-export type GalleryItem = {
-    id: string | number;
-    image: string;
-    title: string;
-    description: string;
-    imageAlt?: string;
-};
+// export type GalleryItem = {
+//     id: string | number;
+//     image: string;
+//     title: string;
+//     description: string;
+//     imageAlt?: string;
+// };
 
 export type GallerySectionProps = {
-    items?: GalleryItem[];
+    items: GalleryItem[];
     eyebrow?: string;
     title?: string;
     highlightedWord?: string;
@@ -18,53 +19,8 @@ export type GallerySectionProps = {
     enableLightbox?: boolean;
 };
 
-const defaultGalleryItems: GalleryItem[] = [
-    {
-        id: 1,
-        image: "https://images.unsplash.com/photo-1504159506876-f8338247a14a?auto=format&fit=crop&w=1200&q=85",
-        title: "Little Explorers",
-        description: "Outdoor discovery & meaningful play",
-        imageAlt: "Children exploring outdoors",
-    },
-    {
-        id: 2,
-        image: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=1200&q=85",
-        title: "Creative Moments",
-        description: "Arts, crafts & imagination",
-        imageAlt: "Child enjoying a creative activity",
-    },
-    {
-        id: 3,
-        image: "https://images.unsplash.com/photo-1651614158095-b98b6c1da74b?auto=format&fit=crop&w=1200&q=85",
-        title: "Poolside Fun",
-        description: "Safe & supervised water play",
-        imageAlt: "Children enjoying poolside activities",
-    },
-    {
-        id: 4,
-        image: "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&w=1200&q=85",
-        title: "Curious Minds",
-        description: "Learning through everyday experiences",
-        imageAlt: "Child learning through outdoor activities",
-    },
-    {
-        id: 5,
-        image: "https://plus.unsplash.com/premium_photo-1663088809392-ef409ddf5940?auto=format&fit=crop&w=1200&q=85",
-        title: "Family Adventures",
-        description: "Making beautiful Bali memories",
-        imageAlt: "Family enjoying an outdoor adventure",
-    },
-    {
-        id: 6,
-        image: "https://images.unsplash.com/photo-1607453998774-d533f65dac99?auto=format&fit=crop&w=1200&q=85",
-        title: "Happy Little Hearts",
-        description: "Warm, attentive & joyful care",
-        imageAlt: "Happy children playing together",
-    },
-];
-
 export default function GallerySection({
-    items = defaultGalleryItems,
+    items,
     eyebrow = "Life With Miss Neka",
     title = "Little moments.",
     highlightedWord = "Big memories.",
@@ -142,7 +98,7 @@ export default function GallerySection({
                                 >
                                     <img
                                         src={item.image}
-                                        alt={item.imageAlt ?? item.title}
+                                        alt={item.image_alt ?? item.title}
                                         loading={index < 3 ? "eager" : "lazy"}
                                         className={`w-full object-cover transition duration-700 group-hover:scale-105 ${
                                             isLargeItem
@@ -210,7 +166,7 @@ export default function GallerySection({
                     >
                         <img
                             src={selectedItem.image}
-                            alt={selectedItem.imageAlt ?? selectedItem.title}
+                            alt={selectedItem.image_alt ?? selectedItem.title}
                             className="max-h-[75vh] w-auto max-w-full object-contain"
                         />
 

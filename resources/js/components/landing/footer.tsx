@@ -1,4 +1,10 @@
 import {
+    FooterContact,
+    NavigationLink,
+    Service,
+    SocialLink,
+} from "@/types/landing-page";
+import {
     Facebook,
     Heart,
     Instagram,
@@ -8,42 +14,15 @@ import {
     Phone,
     PlayCircle,
     Twitter,
+    Youtube,
 } from "lucide-react";
-
-export type FooterLink = {
-    id: string | number;
-    label: string;
-    href: string;
-};
-
-export type FooterService = {
-    id: string | number;
-    label: string;
-    href?: string;
-};
-
-export type FooterSocialPlatform = "instagram" | "facebook" | "tiktok" | "x";
-
-export type FooterSocialLink = {
-    id: string | number;
-    platform: FooterSocialPlatform;
-    label: string;
-    url: string;
-};
-
-export type FooterContact = {
-    whatsapp?: string;
-    whatsappUrl: string;
-    email?: string;
-    location?: string;
-};
 
 export type FooterSectionProps = {
     brandName?: string;
     brandDescription?: string;
-    navigationLinks: FooterLink[];
-    services: FooterService[];
-    socialLinks?: FooterSocialLink[];
+    navigationLinks: NavigationLink[];
+    services: Service[];
+    socialLinks?: SocialLink[];
     contact: FooterContact;
     coverageAreas?: string[];
     copyrightName?: string;
@@ -56,6 +35,7 @@ const socialIconMap = {
     facebook: Facebook,
     tiktok: PlayCircle,
     x: Twitter,
+    youtube: Youtube,
 } as const;
 
 export default function Footer({
@@ -257,7 +237,7 @@ export default function Footer({
                 )}
 
                 {/* Bottom */}
-                <div className="mt-10 flex flex-col gap-4 border-t border-[#514B48] pt-6 text-xs text-[#928984] sm:flex-row sm:items-center sm:justify-between">
+                {/* <div className="mt-10 flex flex-col gap-4 border-t border-[#514B48] pt-6 text-xs text-[#928984] sm:flex-row sm:items-center sm:justify-between">
                     <p>
                         ©{currentYear} {copyrightName}. All rights reserved.
                     </p>
@@ -277,10 +257,13 @@ export default function Footer({
                             Terms & Conditions
                         </a>
                     </div>
-                </div>
+                </div> */}
             </div>
 
-            <div className="border-t border-[#514B48] px-5 py-4 text-center text-xs text-[#756D69]">
+            <div className="border-t border-[#514B48] px-5 text-center text-xs text-[#756D69] space-y-3 py-4">
+                <p>
+                    ©{currentYear} {copyrightName}. All rights reserved.
+                </p>
                 <span>
                     Made with care in Bali{" "}
                     <Heart

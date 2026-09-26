@@ -1,58 +1,16 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, MessageCircle, Star } from "lucide-react";
-
-export type HeroSlide = {
-    id: string | number;
-    image: string;
-    eyebrow: string;
-    title: string;
-    accent: string;
-    description: string;
-    imageAlt?: string;
-};
+import { HeroSlide } from "@/types/landing-page";
 
 export type HeroSectionProps = {
-    slides?: HeroSlide[];
+    slides: HeroSlide[];
     whatsappUrl: string;
     autoplayInterval?: number;
     onExploreServices?: () => void;
 };
 
-const defaultHeroSlides: HeroSlide[] = [
-    {
-        id: 1,
-        image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=2200&q=90",
-        eyebrow: "CARING • PROFESSIONAL • TRUSTED",
-        title: "More Than a Nanny.",
-        accent: "A Peace of Mind.",
-        description:
-            "Premium childcare support for families who want to experience Bali with confidence, comfort, and complete peace of mind.",
-        imageAlt: "Happy children enjoying a family moment",
-    },
-    {
-        id: 2,
-        image: "https://images.unsplash.com/photo-1602030028438-4cf153cbae9e?auto=format&fit=crop&w=2200&q=90",
-        eyebrow: "YOUR FAMILY, OUR CARE",
-        title: "Exceptional Care,",
-        accent: "Wherever Bali Takes You.",
-        description:
-            "From your private villa to a beach club, resort, wedding, or family adventure — your little ones are always in caring hands.",
-        imageAlt: "Family enjoying quality time together",
-    },
-    {
-        id: 3,
-        image: "https://images.unsplash.com/photo-1540479859555-17af45c78602?auto=format&fit=crop&w=2200&q=90",
-        eyebrow: "BALI FAMILY EXPERIENCES",
-        title: "Explore Bali.",
-        accent: "We'll Care for the Little Ones.",
-        description:
-            "Enjoy your holiday, your dinner, or your special occasion while our professional nanny gives your children attentive, loving care.",
-        imageAlt: "Children enjoying an outdoor activity",
-    },
-];
-
 export default function HeroSection({
-    slides = defaultHeroSlides,
+    slides,
     whatsappUrl,
     autoplayInterval = 5500,
     onExploreServices,
@@ -128,7 +86,7 @@ export default function HeroSection({
                 >
                     <img
                         src={slide.image}
-                        alt={slide.imageAlt ?? ""}
+                        alt={slide.image_alt ?? ""}
                         className="h-full w-full object-cover"
                         fetchPriority={index === 0 ? "high" : "auto"}
                     />
