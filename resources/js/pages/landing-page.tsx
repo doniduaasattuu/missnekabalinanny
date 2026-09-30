@@ -64,7 +64,6 @@ export default function LandingPage({
     about,
     aboutVideo,
     faqItems,
-    footerContact,
 }: LandingPageProps) {
     return (
         <div className="min-h-screen bg-[#FFF9F5] text-[#292524]">
@@ -72,16 +71,6 @@ export default function LandingPage({
                 <HeroSection slides={heroSlides} whatsappUrl={whatsappUrl} />
 
                 <TrustBadges badges={trustBadges} />
-
-                <ServicesSection
-                    services={services}
-                    whatsappUrl={whatsappUrl}
-                    banner={servicesBanner}
-                />
-
-                <GallerySection items={galleryItems} />
-
-                <TestimonialsSection testimonials={testimonials} />
 
                 <AboutSection
                     image={about.image}
@@ -93,6 +82,16 @@ export default function LandingPage({
                     quoteAuthor={about.quoteAuthor}
                     video={aboutVideo}
                 />
+
+                <ServicesSection
+                    services={services}
+                    whatsappUrl={whatsappUrl}
+                    banner={servicesBanner}
+                />
+
+                <GallerySection items={galleryItems} />
+
+                <TestimonialsSection testimonials={testimonials} />
 
                 <FAQSection items={faqItems} whatsappUrl={whatsappUrl} />
             </main>

@@ -15,6 +15,8 @@ class NavigationService
                 'id',
                 'label',
                 'href',
+                'url',
+                'is_direct'
             ]);
     }
 }

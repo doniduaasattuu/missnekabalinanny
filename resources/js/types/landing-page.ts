@@ -18,6 +18,7 @@ export interface NavigationLink {
     label: string;
     href: string;
     url: string;
+    is_direct: boolean;
     sort_order: number;
     is_active: boolean;
     created_at: string;

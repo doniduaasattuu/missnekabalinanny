@@ -85,7 +85,7 @@ export default function HeroSection({
                     aria-hidden={index !== currentSlide}
                 >
                     <img
-                        src={slide.image}
+                        src={`/storage/${slide.image}`}
                         alt={slide.image_alt ?? ""}
                         className="h-full w-full object-cover"
                         fetchPriority={index === 0 ? "high" : "auto"}

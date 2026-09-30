@@ -1,3 +1,4 @@
+import { useIsMobile } from "@/hooks/use-mobile";
 import {
     FooterContact,
     NavigationLink,
@@ -53,6 +54,7 @@ export default function Footer({
     privacyHref = "#",
     termsHref = "#",
 }: FooterSectionProps) {
+    const isMobile = useIsMobile();
     const currentYear = new Date().getFullYear();
     const props = usePage().props;
     const socialLinks: SocialLink[] = props.socialLinks;
@@ -128,44 +130,57 @@ export default function Footer({
                         </h3>
 
                         <ul className="mt-5 space-y-3">
-                            {navigationLinks.map((link) => (
-                                <li key={link.id}>
-                                    <a
-                                        href={link.href}
-                                        className="text-sm text-[#BEB5B0] transition-colors hover:text-[#E8A7B0]"
-                                    >
-                                        {link.label}
-                                    </a>
-                                </li>
-                            ))}
+                            {navigationLinks.map((link) =>
+                                link.is_direct ? (
+                                    <li key={link.id}>
+                                        <a
+                                            href={link.url}
+                                            className="text-sm text-[#BEB5B0] transition-colors hover:text-[#E8A7B0]"
+                                        >
+                                            {link.label}
+                                        </a>
+                                    </li>
+                                ) : (
+                                    <li key={link.id}>
+                                        <a
+                                            href={link.href}
+                                            className="text-sm text-[#BEB5B0] transition-colors hover:text-[#E8A7B0]"
+                                        >
+                                            {link.label}
+                                        </a>
+                                    </li>
+                                ),
+                            )}
                         </ul>
                     </div>
 
                     {/* Services */}
-                    <div>
-                        <h3 className="text-sm font-semibold text-[#FFF9F5]">
-                            Our Services
-                        </h3>
+                    {!isMobile && (
+                        <div>
+                            <h3 className="text-sm font-semibold text-[#FFF9F5]">
+                                Our Services
+                            </h3>
 
-                        <ul className="mt-5 space-y-3">
-                            {services.map((service) => (
-                                <li key={service.id}>
-                                    {service.href ? (
-                                        <a
-                                            href={service.href}
-                                            className="text-sm text-[#BEB5B0] transition-colors hover:text-[#E8A7B0]"
-                                        >
-                                            {service.label}
-                                        </a>
-                                    ) : (
-                                        <span className="text-sm text-[#BEB5B0]">
-                                            {service.label}
-                                        </span>
-                                    )}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                            <ul className="mt-5 space-y-3">
+                                {services.map((service) => (
+                                    <li key={service.id}>
+                                        {service.href ? (
+                                            <a
+                                                href={service.href}
+                                                className="text-sm text-[#BEB5B0] transition-colors hover:text-[#E8A7B0]"
+                                            >
+                                                {service.label}
+                                            </a>
+                                        ) : (
+                                            <span className="text-sm text-[#BEB5B0]">
+                                                {service.label}
+                                            </span>
+                                        )}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
 
                     {/* Contact */}
                     <div>

@@ -15,6 +15,7 @@ void createInertiaApp({
         switch (true) {
             case name === "landing-page":
             case name === "gallery/index":
+            case name === "about/index":
                 return PublicLayout;
             case name.startsWith("auth/"):
                 return AuthLayout;

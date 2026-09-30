@@ -103,7 +103,7 @@ export default function GallerySection({
                                     }
                                 >
                                     <img
-                                        src={item.image}
+                                        src={`/storage/${item.image}`}
                                         alt={item.imageAlt ?? item.title}
                                         loading={index < 3 ? "eager" : "lazy"}
                                         className={`w-full object-cover transition duration-700 group-hover:scale-105 ${

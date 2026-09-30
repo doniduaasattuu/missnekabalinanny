@@ -3,7 +3,7 @@ import { Menu, MessageCircle, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import Logo from "./logo";
 import { router, usePage } from "@inertiajs/react";
-import { home } from "@/routes";
+import { gallery, home } from "@/routes";
 import { useCurrentUrl } from "@/hooks/use-current-url";
 
 export default function Navigation() {
@@ -21,7 +21,6 @@ export default function Navigation() {
     }
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const isCurrentUrl = useCurrentUrl();
 
     useEffect(() => {
         const handleEscape = (event: KeyboardEvent) => {
@@ -45,15 +44,19 @@ export default function Navigation() {
         };
     }, [mobileMenuOpen]);
 
-    const handleNavigation = (href: string) => {
+    const handleNavigation = (item: NavigationLink) => {
         setMobileMenuOpen(false);
 
-        const element = document.querySelector(href);
+        if (item.is_direct) {
+            router.get(item.url);
+        } else {
+            const element = document.querySelector(item.href);
 
-        element?.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-        });
+            element?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        }
     };
 
     return (
@@ -90,11 +93,11 @@ export default function Navigation() {
                     className="hidden items-center gap-7 lg:flex"
                     aria-label="Main navigation"
                 >
-                    {navigationItems.map((item) => (
+                    {navigationItems.map((item: NavigationLink) => (
                         <button
                             key={item.href}
                             type="button"
-                            onClick={() => handleNavigation(item.href)}
+                            onClick={() => handleNavigation(item)}
                             className={
                                 "text-[13px] font-semibold text-gray-600 transition-colors hover:text-[#DB2777]"
                             }
@@ -153,7 +156,7 @@ export default function Navigation() {
                         <button
                             key={item.href}
                             type="button"
-                            onClick={() => handleNavigation(item.href)}
+                            onClick={() => handleNavigation(item)}
                             tabIndex={mobileMenuOpen ? 0 : -1}
                             className="block w-full border-b border-gray-100 py-4 text-left text-sm font-semibold text-gray-700 transition-colors hover:text-[#DB2777]"
                         >
