@@ -73,7 +73,7 @@ export default function LandingPage({
                 <TrustBadges badges={trustBadges} />
 
                 <AboutSection
-                    image={about.image}
+                    image={`storage/${about.image}`}
                     imageAlt={about.imageAlt}
                     features={about.features}
                     paragraphs={about.paragraphs}

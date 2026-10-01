@@ -9,9 +9,12 @@ import {
     Users,
     Twitter,
     Youtube,
+    AtSign,
+    ThumbsUp,
 } from "lucide-react";
 import AboutVideoSection from "./about-video";
 import Logo from "./logo";
+import SocialMedia from "./social-media";
 
 export type AboutSectionProps = {
     image: string;
@@ -32,14 +35,6 @@ const featureIconMap = {
     check: Check,
     heart: Heart,
     users: Users,
-} as const;
-
-const socialIconMap = {
-    instagram: Instagram,
-    facebook: Facebook,
-    tiktok: PlayCircle,
-    x: Twitter,
-    youtube: Youtube,
 } as const;
 
 export default function AboutSection({
@@ -133,25 +128,10 @@ export default function AboutSection({
                                     Follow us
                                 </span>
 
-                                {socialLinks.map((social) => {
-                                    const Icon = socialIconMap[social.platform];
-
-                                    return (
-                                        <a
-                                            key={social.id}
-                                            href={social.url}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            aria-label={`Follow us on ${social.label}`}
-                                            className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FDF2F4] text-[#DB2777] transition-all hover:-translate-y-0.5 hover:bg-[#DB2777] hover:text-white"
-                                        >
-                                            <Icon
-                                                className="h-4 w-4"
-                                                aria-hidden="true"
-                                            />
-                                        </a>
-                                    );
-                                })}
+                                <SocialMedia
+                                    socialLinks={socialLinks}
+                                    theme="pink"
+                                />
                             </div>
                         )}
                     </div>

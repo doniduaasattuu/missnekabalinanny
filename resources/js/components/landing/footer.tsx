@@ -7,6 +7,7 @@ import {
 } from "@/types/landing-page";
 import { usePage } from "@inertiajs/react";
 import {
+    AtSign,
     Facebook,
     Heart,
     Instagram,
@@ -15,9 +16,11 @@ import {
     MessageCircle,
     Phone,
     PlayCircle,
+    ThumbsUp,
     Twitter,
     Youtube,
 } from "lucide-react";
+import SocialMedia from "./social-media";
 
 export type FooterSectionProps = {
     brandName?: string;
@@ -31,14 +34,6 @@ export type FooterSectionProps = {
     privacyHref?: string;
     termsHref?: string;
 };
-
-const socialIconMap = {
-    instagram: Instagram,
-    facebook: Facebook,
-    tiktok: PlayCircle,
-    x: Twitter,
-    youtube: Youtube,
-} as const;
 
 export default function Footer({
     coverageAreas = [
@@ -100,25 +95,7 @@ export default function Footer({
 
                         {socialLinks.length > 0 && (
                             <div className="mt-7 flex items-center gap-2">
-                                {socialLinks.map((social) => {
-                                    const Icon = socialIconMap[social.platform];
-
-                                    return (
-                                        <a
-                                            key={social.id}
-                                            href={social.url}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            aria-label={social.label}
-                                            className="flex size-9 items-center justify-center rounded-full border border-[#514B48] text-[#D6CEC9] transition-colors hover:border-[#E8A7B0] hover:bg-[#E8A7B0] hover:text-[#292524]"
-                                        >
-                                            <Icon
-                                                className="size-4"
-                                                aria-hidden="true"
-                                            />
-                                        </a>
-                                    );
-                                })}
+                                <SocialMedia socialLinks={socialLinks} />
                             </div>
                         )}
                     </div>

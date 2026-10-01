@@ -48,7 +48,7 @@ class LandingPageSeeder extends Seeder
             ],
             [
                 'key' => 'email',
-                'value' => 'hello@missnekanannybali.com',
+                'value' => 'hello@missnekabalinanny.com',
                 'type' => 'string',
             ],
             [
@@ -58,12 +58,12 @@ class LandingPageSeeder extends Seeder
             ],
             [
                 'key' => 'about_image',
-                'value' => 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1400&q=85',
+                'value' => 'images/about-image.jpg',
                 'type' => 'string',
             ],
             [
                 'key' => 'about_image_alt',
-                'value' => 'Nanny spending quality time with a child',
+                'value' => 'Nanny caring children like family',
                 'type' => 'string',
             ],
             [
@@ -167,15 +167,15 @@ class LandingPageSeeder extends Seeder
             [
                 'label' => 'Home',
                 'href' => '#home',
-                'url' => '/home',
-                'is_direct' => false,
+                'url' => '/',
+                'is_direct' => true,
                 'sort_order' => 1,
             ],
             [
                 'label' => 'About Us',
                 'href' => '#about',
                 'url' => '/about',
-                'is_direct' => false,
+                'is_direct' => true,
                 'sort_order' => 2,
             ],
             [
@@ -279,7 +279,7 @@ class LandingPageSeeder extends Seeder
 
         $trustBadges = [
             [
-                'value' => '5+',
+                'value' => '10+',
                 'label' => 'Years Experience',
                 'icon' => 'shield-check',
                 'sort_order' => 1,
@@ -745,25 +745,25 @@ class LandingPageSeeder extends Seeder
             [
                 'platform' => 'instagram',
                 'label' => 'Instagram',
-                'url' => 'https://instagram.com/missnekanannybali',
+                'url' => 'https://www.instagram.com/neka_kharisma',
                 'sort_order' => 1,
+            ],
+            [
+                'platform' => 'threads',
+                'label' => 'Threads',
+                'url' => 'https://www.threads.com/@neka_kharisma',
+                'sort_order' => 2,
             ],
             [
                 'platform' => 'facebook',
                 'label' => 'Facebook',
-                'url' => 'https://facebook.com/missnekanannybali',
-                'sort_order' => 2,
-            ],
-            [
-                'platform' => 'tiktok',
-                'label' => 'TikTok',
-                'url' => 'https://tiktok.com/@missnekanannybali',
+                'url' => 'https://facebook.com/menel.kharismaa',
                 'sort_order' => 3,
             ],
             [
-                'platform' => 'x',
-                'label' => 'X',
-                'url' => 'https://x.com/missnekananny',
+                'platform' => 'youtube',
+                'label' => 'YouTube',
+                'url' => 'https://www.youtube.com/@nekakharisma',
                 'sort_order' => 4,
             ],
         ];

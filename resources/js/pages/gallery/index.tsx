@@ -2,18 +2,13 @@ import { useState } from "react";
 
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
 
-import Navigation from "@/components/landing/navigation";
-import Footer from "@/components/landing/footer";
-
 import type {
     GalleryItem,
     NavigationLink,
-    FooterService,
     SocialLink,
     FooterContact,
     Service,
 } from "@/types/landing-page";
-import PublicLayout from "@/layouts/public-layout";
 
 interface GalleryPageProps {
     galleryItems: GalleryItem[];

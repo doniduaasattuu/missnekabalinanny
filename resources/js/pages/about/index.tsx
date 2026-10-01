@@ -46,17 +46,12 @@ type FooterContact = {
 };
 
 type AboutPageProps = {
-    navigationLinks: NavigationItem[];
     whatsappUrl: string;
     aboutImage: string;
     aboutImageAlt: string;
     aboutFeatures: AboutFeature[];
-    aboutSocialLinks: SocialLink[];
     aboutQuote: string;
     aboutQuoteAuthor: string;
-    footerServices: FooterService[];
-    footerSocialLinks: SocialLink[];
-    footerContact: FooterContact;
     coverageAreas: string[];
 };
 
@@ -85,17 +80,12 @@ const values = [
 ];
 
 export default function About({
-    navigationLinks,
     whatsappUrl,
     aboutImage,
     aboutImageAlt,
     aboutFeatures,
-    aboutSocialLinks,
     aboutQuote,
     aboutQuoteAuthor,
-    footerServices,
-    footerSocialLinks,
-    footerContact,
     coverageAreas,
 }: AboutPageProps) {
     return (
@@ -255,7 +245,7 @@ export default function About({
                                         Neka
                                     </p>
                                     <p className="mt-1 text-xs uppercase tracking-[0.16em] text-[#8A7E79]">
-                                        Founder, Miss Neka Nanny Bali
+                                        Founder, Miss Neka Bali Nanny
                                     </p>
                                 </div>
                             </div>

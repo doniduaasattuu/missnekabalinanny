@@ -5,6 +5,7 @@ import Logo from "./logo";
 import { router, usePage } from "@inertiajs/react";
 import { gallery, home } from "@/routes";
 import { useCurrentUrl } from "@/hooks/use-current-url";
+import { cn } from "@/lib/utils";
 
 export default function Navigation() {
     const props = usePage().props;
@@ -15,6 +16,8 @@ export default function Navigation() {
 
     const navigationItems: NavigationLink[] = props.navigationLinks;
     const whatsappUrl = props.whatsappUrl;
+
+    const { currentUrl } = useCurrentUrl();
 
     if (!navigationItems) {
         return null;
@@ -93,18 +96,23 @@ export default function Navigation() {
                     className="hidden items-center gap-7 lg:flex"
                     aria-label="Main navigation"
                 >
-                    {navigationItems.map((item: NavigationLink) => (
-                        <button
-                            key={item.href}
-                            type="button"
-                            onClick={() => handleNavigation(item)}
-                            className={
-                                "text-[13px] font-semibold text-gray-600 transition-colors hover:text-[#DB2777]"
-                            }
-                        >
-                            {item.label}
-                        </button>
-                    ))}
+                    {navigationItems.map((item: NavigationLink) => {
+                        const isActive = item.url == currentUrl;
+
+                        return (
+                            <button
+                                key={item.href}
+                                type="button"
+                                onClick={() => handleNavigation(item)}
+                                className={cn(
+                                    "text-[13px] font-semibold text-gray-600 transition-colors hover:text-[#DB2777]",
+                                    isActive ? "text-[#DB2777]" : null,
+                                )}
+                            >
+                                {item.label}
+                            </button>
+                        );
+                    })}
                 </nav>
 
                 {/* Desktop CTA */}
