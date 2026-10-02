@@ -37,18 +37,18 @@ class LandingPageSeeder extends Seeder
                 'type' => 'text',
             ],
             [
-                'key' => 'whatsapp',
-                'value' => '+62 858-5645-9247',
+                'key' => 'whatsapp_number',
+                'value' => '+6282323132574',
                 'type' => 'string',
             ],
             [
-                'key' => 'whatsapp_url',
-                'value' => 'https://wa.me/6285856459247?text=Hello%20Miss%20Neka%20Nanny%20Bali%2C%0A%0AI%20would%20like%20to%20enquire%20about%20booking%20a%20nanny.%0A%0ADate%3A%20%5BDate%5D%0ALocation%3A%20%5BVilla%20%2F%20Hotel%20%2F%20Area%20in%20Bali%5D%0ANumber%20of%20children%3A%20%5BNumber%5D%0AChildren%27s%20ages%3A%20%5BAges%5D%0AService%20needed%3A%20%5BService%5D%0A%0ACould%20you%20please%20share%20your%20availability%20and%20rates%3F%0A%0AThank%20you!',
+                'key' => 'whatsapp_message',
+                'value' => 'Hello%20Miss%20Neka%2C%0A%0AI%20would%20like%20to%20enquire%20about%20booking%20a%20nanny.%0A%0ADate%3A%20%5BDate%5D%0ALocation%3A%20%5BVilla%20%2F%20Hotel%20%2F%20Area%20in%20Bali%5D%0ANumber%20of%20children%3A%20%5BNumber%5D%0AChildren%27s%20ages%3A%20%5BAges%5D%0AService%20needed%3A%20%5BService%5D%0A%0ACould%20you%20please%20share%20your%20availability%20and%20rates%3F%0A%0AThank%20you!',
                 'type' => 'string',
             ],
             [
                 'key' => 'email',
-                'value' => 'hello@missnekabalinanny.com',
+                'value' => 'missnekabalinanny@gmail.com',
                 'type' => 'string',
             ],
             [
@@ -68,7 +68,7 @@ class LandingPageSeeder extends Seeder
             ],
             [
                 'key' => 'about_quote',
-                'value' => 'Caring for your children like family, so you can experience Bali with peace of mind.',
+                'value' => 'Caring for little ones. Supporting families. Creating happy memories in Bali.',
                 'type' => 'text',
             ],
             [
@@ -103,12 +103,12 @@ class LandingPageSeeder extends Seeder
             ],
             [
                 'key' => 'about_paragraph_1',
-                'value' => "Miss Neka and her professional nanny team are dedicated to providing warm, reliable and thoughtful childcare for families in Bali.",
+                'value' => "Miss Neka Bali Nanny is a professional childcare service with more than 10 years of experience caring for children.",
                 'type' => 'string',
             ],
             [
                 'key' => 'about_paragraph_2',
-                'value' => "We understand that choosing someone to care for your child while travelling is a deeply personal decision. That is why we focus on safety, communication, professionalism and genuine connection with every family we serve.",
+                'value' => "With 8 years of overseas experience and 1 years as a Kids Club professional in Bali, Miss Neka brings experience, patience, energy, and genuine care to every child she looks after.",
                 'type' => 'string',
             ],
 
@@ -142,6 +142,26 @@ class LandingPageSeeder extends Seeder
                 'key' => 'about_video_is_active',
                 'value' => '1',
                 'type' => 'boolean',
+            ],
+            [
+                'key' => 'testimonials_eyebrow',
+                'value' => 'Testimonials',
+                'type' => 'string',
+            ],
+            [
+                'key' => 'testimonials_title',
+                'value' => 'Because Every Family Deserves',
+                'type' => 'string',
+            ],
+            [
+                'key' => 'testimonials_highlighted_word',
+                'value' => 'Peace of Mind',
+                'type' => 'string',
+            ],
+            [
+                'key' => 'testimonials_label',
+                'value' => 'Nothing makes us happier than knowing families feel comfortable, confident, and cared for. Read the experiences and heartfelt words from the families we have been honoured to serve.',
+                'type' => 'string',
             ],
         ];
 
@@ -324,23 +344,37 @@ class LandingPageSeeder extends Seeder
 
         $services = [
             [
-                'title' => 'Daytime Nanny',
-                'description' => 'Reliable childcare during the day so parents can relax, work, or explore Bali with peace of mind.',
-                'label' => 'Daytime Nanny',
+                'title' => 'Hotel & Villa Babysitting',
+                'description' => 'Professional childcare at your hotel or villa, giving parents peace of mind while enjoying their holiday.',
+                'label' => 'Hotel & Villa Babysitting',
                 'href' => '#services',
                 'features' => [
-                    'Villa & hotel childcare',
-                    'Playtime & activities',
+                    'Specially trained babysitters',
+                    'Flexible scheduling to fit your plans',
+                    'Age-appropriate activities & play',
                     'Meal & nap assistance',
-                    'Flexible booking hours',
                 ],
-                'icon' => 'sun',
+                'icon' => 'hotel',
                 'sort_order' => 1,
             ],
             [
-                'title' => 'Evening & Night Nanny',
-                'description' => 'Enjoy your evenings while your children are safely cared for by an experienced and attentive nanny.',
-                'label' => 'Evening & Night Nanny',
+                'title' => 'Wedding & Event Babysitting',
+                'description' => 'Dedicated childcare during weddings, celebrations, and special events, so parents can enjoy every moment.',
+                'label' => 'Wedding & Event Babysitting',
+                'href' => '#services',
+                'features' => [
+                    'Flexible hours to match your event',
+                    'Experienced in event childcare',
+                    'Supervised play & entertainment',
+                    'Meal & bedtime routines',
+                ],
+                'icon' => 'gem',
+                'sort_order' => 2,
+            ],
+            [
+                'title' => 'Evening & Night Babysitting',
+                'description' => 'Flexible evening and night childcare for parents who would like some private time or a relaxing night out.',
+                'label' => 'Evening & Night Babysitting',
                 'href' => '#services',
                 'features' => [
                     'Dinner & bedtime routine',
@@ -349,37 +383,52 @@ class LandingPageSeeder extends Seeder
                     'Late-night childcare',
                 ],
                 'icon' => 'moon',
-                'sort_order' => 2,
-            ],
-            [
-                'title' => 'Event & Wedding Nanny',
-                'description' => 'Professional childcare support for weddings, private events, dinners, and special occasions in Bali.',
-                'label' => 'Event & Wedding Nanny',
-                'href' => '#services',
-                'features' => [
-                    'Wedding childcare',
-                    'Private events',
-                    'Restaurant assistance',
-                    'Dedicated child supervision',
-                ],
-                'icon' => 'heart',
                 'sort_order' => 3,
             ],
             [
-                'title' => 'Travel & Excursion Nanny',
-                'description' => 'A trusted companion for families exploring Bali, helping parents enjoy excursions while children remain comfortable and cared for.',
-                'label' => 'Travel & Excursion Nanny',
+                'title' => 'Kids Entertainment & Activities',
+                'description' => 'Flexible evening and night childcare for parents who would like some private time or a relaxing night out.',
+                'label' => 'Kids Entertainment & Activities',
                 'href' => '#services',
                 'features' => [
-                    'Day trips',
-                    'Family excursions',
-                    'Beach & pool supervision',
-                    'Flexible travel arrangements',
+                    'Creative arts & crafts activities',
+                    'Imaginative play & games',
+                    'Outdoor exploration & discovery',
+                    'Music, dance & movement activities',
                 ],
-                'icon' => 'map-pin',
+                'icon' => 'drama',
                 'sort_order' => 4,
             ],
+            [
+                'title' => 'Poolside Childcare',
+                'description' => 'Attentive supervision and fun companionship while children enjoy swimming and pool activities.',
+                'label' => 'Poolside Childcare',
+                'href' => '#services',
+                'features' => [
+                    'Supervised pool play & safety',
+                    'Age-appropriate water activities',
+                    'Fun games & entertainment',
+                    'Meal & hydration support',
+                ],
+                'icon' => 'wavesladder',
+                'sort_order' => 5,
+            ],
+            [
+                'title' => 'Arts & Crafts',
+                'description' => 'Attentive supervision and fun companionship while children enjoy swimming and pool activities.',
+                'label' => 'Arts & Crafts',
+                'href' => '#services',
+                'features' => [
+                    'Creative arts & crafts activities',
+                    'Imagination & expression',
+                    'Fine motor skill development',
+                    'Collaborative projects',
+                ],
+                'icon' => 'paintbrush',
+                'sort_order' => 6,
+            ]
         ];
+
 
         foreach ($services as $service) {
             DB::table('services')->updateOrInsert(
@@ -791,7 +840,7 @@ class LandingPageSeeder extends Seeder
         $faqItems = [
             [
                 'question' => 'Which areas in Bali do you cover?',
-                'answer' => 'We currently provide nanny services in Canggu, Seminyak, Ubud, Nusa Dua, Sanur, Uluwatu, and Jimbaran. If you are staying outside these areas, please contact us on WhatsApp and we can confirm availability.',
+                'answer' => 'We currently provide nanny services in Nusa Dua. If you are staying outside these areas, please contact us on WhatsApp and we can confirm availability.',
                 'sort_order' => 1,
             ],
             [
@@ -845,13 +894,13 @@ class LandingPageSeeder extends Seeder
         */
 
         $coverageAreas = [
-            'Canggu',
-            'Seminyak',
-            'Ubud',
             'Nusa Dua',
-            'Sanur',
-            'Uluwatu',
-            'Jimbaran',
+            // 'Canggu',
+            // 'Seminyak',
+            // 'Ubud',
+            // 'Sanur',
+            // 'Uluwatu',
+            // 'Jimbaran',
         ];
 
         foreach ($coverageAreas as $index => $area) {

@@ -90,7 +90,7 @@ export default function About({
 }: AboutPageProps) {
     return (
         <>
-            <Head title="About Us | Miss Neka Nanny Bali">
+            <Head title="About Us">
                 <meta
                     name="description"
                     content="Get to know Miss Neka Nanny Bali and our approach to warm, attentive, and trustworthy childcare for families visiting Bali."
@@ -101,7 +101,7 @@ export default function About({
 
             <main className="overflow-hidden bg-[#FFFCFA] text-[#252321]">
                 {/* Hero */}
-                <section className="relative px-5 pb-16 pt-20 sm:px-8 sm:pb-20 sm:pt-28 lg:px-12 lg:pb-28 lg:pt-36">
+                <section className="relative px-5 pb-16 pt-32 sm:px-8 sm:pb-20 sm:pt-28 lg:px-12 lg:pb-28 lg:pt-36">
                     <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
                         <div className="max-w-2xl">
                             <div className="mb-6 flex items-center gap-3">
@@ -153,7 +153,7 @@ export default function About({
 
                             <div className="relative aspect-4/4.5 overflow-hidden rounded-4xl sm:rounded-[2.5rem]">
                                 <img
-                                    src={aboutImage}
+                                    src={`storage/${aboutImage}`}
                                     alt={aboutImageAlt}
                                     className="h-full w-full object-cover"
                                     fetchPriority="high"
@@ -192,7 +192,7 @@ export default function About({
                             </h2>
                             <div className="mt-7 h-px w-16 bg-[#D9A2AA]" />
                             <p className="mt-6 max-w-sm text-sm leading-7 text-[#756C68]">
-                                The person behind Miss Neka Nanny Bali. Building
+                                The person behind Miss Neka Bali Nanny. Building
                                 trust with families, one thoughtful moment at a
                                 time.
                             </p>

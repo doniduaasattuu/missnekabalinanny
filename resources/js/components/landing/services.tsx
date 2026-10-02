@@ -2,12 +2,17 @@ import { Service, ServiceIcon, ServicesBanner } from "@/types/landing-page";
 import {
     Check,
     ChevronRight,
+    Drama,
+    Gem,
     Heart,
+    Hotel,
     MapPin,
     MessageCircle,
     Moon,
+    Paintbrush,
     Sparkles,
     Sun,
+    WavesLadder,
     type LucideIcon,
 } from "lucide-react";
 
@@ -25,6 +30,12 @@ const iconMap: Record<ServiceIcon, LucideIcon> = {
     moon: Moon,
     heart: Heart,
     "map-pin": MapPin,
+    hotel: Hotel,
+    gem: Gem,
+    drama: Drama,
+    wavesladder: WavesLadder,
+    paintbrush: Paintbrush,
+    custom: Heart,
 };
 
 export default function ServicesSection({
@@ -32,7 +43,7 @@ export default function ServicesSection({
     whatsappUrl,
     eyebrow = "Our Services",
     title = "Childcare designed around your Bali experience.",
-    description = "Flexible, attentive and family-focused support wherever your Bali plans take you.",
+    description = "From everyday childcare to special occasions and family events, we are here to make your time in Bali more relaxing, enjoyable, and worry-free.",
     banner = {
         title: "A service standard built around your family.",
         description:
@@ -70,7 +81,7 @@ export default function ServicesSection({
                 </div>
 
                 {/* Service Cards */}
-                <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+                <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
                     {services.map((service) => {
                         const Icon = iconMap[service.icon];
 

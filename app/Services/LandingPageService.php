@@ -67,7 +67,7 @@ class LandingPageService
     }
     public function getWhatsappUrl()
     {
-        return $this->setting('whatsapp_url');
+        return 'https://wa.me/' . $this->setting('whatsapp_number') . '?text=' . $this->setting('whatsapp_message');
     }
 
     public function getHeroSlides()
@@ -247,8 +247,8 @@ class LandingPageService
     public function getFooterContact(): array
     {
         return [
-            'whatsapp' => $this->setting('whatsapp'),
-            'whatsappUrl' => $this->setting('whatsapp_url'),
+            'whatsapp' => $this->setting('whatsapp_number'),
+            'whatsappUrl' => $this->getWhatsappUrl(),
             'email' => $this->setting('email'),
             'location' => $this->setting('location'),
         ];

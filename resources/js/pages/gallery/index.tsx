@@ -9,6 +9,7 @@ import type {
     FooterContact,
     Service,
 } from "@/types/landing-page";
+import { Head } from "@inertiajs/react";
 
 interface GalleryPageProps {
     galleryItems: GalleryItem[];
@@ -59,6 +60,13 @@ export default function Gallery({
 
     return (
         <>
+            <Head title="Gallery">
+                <meta
+                    name="description"
+                    content="A glimpse into the warm, playful, and caring moments we create with families throughout Bali."
+                />
+            </Head>
+
             <main className="bg-[#fbf6f9]">
                 {/* Hero */}
                 <section className="relative overflow-hidden px-6 pb-16 pt-32 lg:px-8 lg:pb-24 lg:pt-40">

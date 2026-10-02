@@ -52,7 +52,17 @@ export interface TrustBadge {
     updated_at: string;
 }
 
-export type ServiceIcon = "sun" | "moon" | "heart" | "map-pin";
+export type ServiceIcon =
+    | "sun"
+    | "moon"
+    | "heart"
+    | "map-pin"
+    | "hotel"
+    | "gem"
+    | "drama"
+    | "wavesladder"
+    | "paintbrush"
+    | "custom";
 
 export type ServicesBanner = {
     title: string;

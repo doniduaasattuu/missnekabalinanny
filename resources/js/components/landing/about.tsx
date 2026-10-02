@@ -11,6 +11,7 @@ import {
     Youtube,
     AtSign,
     ThumbsUp,
+    BadgeCheck,
 } from "lucide-react";
 import AboutVideoSection from "./about-video";
 import Logo from "./logo";
@@ -32,7 +33,7 @@ export type AboutSectionProps = {
 
 const featureIconMap = {
     "shield-check": ShieldCheck,
-    check: Check,
+    check: BadgeCheck,
     heart: Heart,
     users: Users,
 } as const;
@@ -101,7 +102,7 @@ export default function AboutSection({
                                     return (
                                         <div
                                             key={feature.id}
-                                            className="rounded-2xl border border-pink-200/30 bg-pink-100/10 p-5 shadow-sm transition-shadow hover:shadow-md"
+                                            className="rounded-2xl border border-pink-200/30 bg-pink-[100/10] p-5 shadow-sm transition-shadow hover:shadow-md"
                                         >
                                             <Icon
                                                 className="h-5 w-5 text-[#DB2777]"

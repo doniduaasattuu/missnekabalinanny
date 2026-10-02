@@ -7,7 +7,7 @@ export type TestimonialsSectionProps = {
     eyebrow?: string;
     title?: string;
     highlightedWord?: string;
-    ratingLabel?: string;
+    label?: string;
     speed?: number;
 };
 
@@ -37,10 +37,10 @@ function RatingStars({ rating }: { rating: number }) {
 
 export default function TestimonialsSection({
     testimonials,
-    eyebrow = "Happy Families",
-    title = "Loved by Families",
-    highlightedWord = "Worldwide",
-    ratingLabel = "5.0 average rating",
+    eyebrow = "Testimonials",
+    title = "Because Every Family Deserves",
+    highlightedWord = "Peace of Mind",
+    label = "Nothing makes us happier than knowing families feel comfortable, confident, and cared for. Read the experiences and heartfelt words from the families we have been honoured to serve.",
     speed = 160,
 }: TestimonialsSectionProps) {
     const [isPaused, setIsPaused] = useState(false);
@@ -94,7 +94,7 @@ export default function TestimonialsSection({
                 </h2>
 
                 <div className="mt-5 flex items-center justify-center gap-3">
-                    <div className="flex gap-0.5">
+                    {/* <div className="flex gap-0.5">
                         {Array.from({ length: 5 }).map((_, index) => (
                             <span
                                 key={index}
@@ -103,11 +103,9 @@ export default function TestimonialsSection({
                                 ★
                             </span>
                         ))}
-                    </div>
+                    </div> */}
 
-                    <span className="text-sm text-[#BEB5B0]">
-                        {ratingLabel}
-                    </span>
+                    <span className="text-sm text-[#BEB5B0]">{label}</span>
                 </div>
             </div>
 

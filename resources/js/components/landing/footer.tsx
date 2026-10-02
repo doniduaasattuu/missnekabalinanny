@@ -6,45 +6,19 @@ import {
     SocialLink,
 } from "@/types/landing-page";
 import { usePage } from "@inertiajs/react";
-import {
-    AtSign,
-    Facebook,
-    Heart,
-    Instagram,
-    Mail,
-    MapPin,
-    MessageCircle,
-    Phone,
-    PlayCircle,
-    ThumbsUp,
-    Twitter,
-    Youtube,
-} from "lucide-react";
+import { Heart, Mail, MapPin, MessageCircle } from "lucide-react";
 import SocialMedia from "./social-media";
+import Logo from "./logo";
 
 export type FooterSectionProps = {
     brandName?: string;
     brandDescription?: string;
-    // navigationLinks: NavigationLink[];
-    // services: Service[];
-    // socialLinks?: SocialLink[];
-    // contact: FooterContact;
-    coverageAreas?: string[];
     copyrightName?: string;
     privacyHref?: string;
     termsHref?: string;
 };
 
 export default function Footer({
-    coverageAreas = [
-        "Canggu",
-        "Seminyak",
-        "Ubud",
-        "Nusa Dua",
-        "Sanur",
-        "Uluwatu",
-        "Jimbaran",
-    ],
     copyrightName = "Miss Neka Nanny Bali",
     privacyHref = "#",
     termsHref = "#",
@@ -59,6 +33,7 @@ export default function Footer({
     const brand = props.brand;
     const brandName = brand.fullName;
     const brandDescription = brand.description;
+    const coverageAreas: string[] = props.coverageAreas;
 
     return (
         <footer className="bg-[#292524] text-[#FFF9F5]">
@@ -71,12 +46,7 @@ export default function Footer({
                             className="inline-flex items-center gap-2"
                             aria-label={`${brandName} home`}
                         >
-                            <span className="flex size-10 items-center justify-center rounded-full bg-[#E8A7B0] text-[#292524]">
-                                <Heart
-                                    className="size-5 fill-current"
-                                    aria-hidden="true"
-                                />
-                            </span>
+                            <Logo />
 
                             <span>
                                 <span className="block font-serif text-xl leading-none">
@@ -230,29 +200,6 @@ export default function Footer({
                         </div>
                     </div>
                 )}
-
-                {/* Bottom */}
-                {/* <div className="mt-10 flex flex-col gap-4 border-t border-[#514B48] pt-6 text-xs text-[#928984] sm:flex-row sm:items-center sm:justify-between">
-                    <p>
-                        ©{currentYear} {copyrightName}. All rights reserved.
-                    </p>
-
-                    <div className="flex items-center gap-5">
-                        <a
-                            href={privacyHref}
-                            className="transition-colors hover:text-[#E8A7B0]"
-                        >
-                            Privacy Policy
-                        </a>
-
-                        <a
-                            href={termsHref}
-                            className="transition-colors hover:text-[#E8A7B0]"
-                        >
-                            Terms & Conditions
-                        </a>
-                    </div>
-                </div> */}
             </div>
 
             <div className="border-t border-[#514B48] px-5 text-center text-xs text-[#756D69] space-y-3 py-4">

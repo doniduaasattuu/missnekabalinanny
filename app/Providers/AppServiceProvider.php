@@ -5,11 +5,8 @@ namespace App\Providers;
 use App\Services\LandingPageService;
 use App\Services\NavigationService;
 use Carbon\CarbonImmutable;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
 use Inertia\Inertia;
@@ -36,6 +33,7 @@ class AppServiceProvider extends ServiceProvider
             'socialLinks' => fn() => app(LandingPageService::class)->getSocialLinks(),
             'services' => fn() => app(LandingPageService::class)->getServices(),
             'footerContact' => fn() => app(LandingPageService::class)->getFooterContact(),
+            'coverageAreas' => fn() => app(LandingPageService::class)->getCoverageAreas(),
         ]);
         $this->configureDefaults();
     }

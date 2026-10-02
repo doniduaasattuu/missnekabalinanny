@@ -5,16 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\AboutFeature;
 use App\Models\CoverageArea;
 use App\Models\SiteSetting;
+use App\Services\LandingPageService;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class AboutController extends Controller
 {
+    public function __construct(
+        private readonly LandingPageService $landingPageService
+    ) {}
+
     public function index(): Response
     {
         return Inertia::render('about/index', [
-            'whatsappUrl' => SiteSetting::where('key', 'whatsapp_url')
-                ->value('value'),
+            'whatsappUrl' => $this->landingPageService->getWhatsappUrl(),
 
             'aboutImage' => SiteSetting::where('key', 'about_image')
                 ->value('value'),
