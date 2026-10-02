@@ -115,17 +115,17 @@ class LandingPageSeeder extends Seeder
             // VIDEO
             [
                 'key' => 'about_video_id',
-                'value' => 'dQw4w9WgXcQ',
+                'value' => 'q2RXuFm6xBA',
                 'type' => 'string',
             ],
             [
                 'key' => 'about_video_url',
-                'value' => 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                'value' => 'https://www.youtube.com/watch?v=q2RXuFm6xBA',
                 'type' => 'string',
             ],
             [
                 'key' => 'about_video_thumbnail_url',
-                'value' => 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
+                'value' => 'https://img.youtube.com/vi/q2RXuFm6xBA/maxresdefault.jpg',
                 'type' => 'string',
             ],
             [
@@ -305,9 +305,9 @@ class LandingPageSeeder extends Seeder
                 'sort_order' => 1,
             ],
             [
-                'value' => 'CPR',
-                'label' => '& First Aid Certified',
-                'icon' => 'check',
+                'value' => 'Flexible Childcare',
+                'label' => 'Day, Evening & Special Events',
+                'icon' => 'heart-handshake',
                 'sort_order' => 2,
             ],
             [
@@ -456,9 +456,9 @@ class LandingPageSeeder extends Seeder
         $galleryItems = [
             [
                 'image' => 'images/gallery/gallery-klkzL6LZ.jpg',
-                'title' => 'Little Explorers',
-                'description' => 'Outdoor discovery & meaningful play',
-                'image_alt' => 'Children exploring outdoors',
+                'title' => 'Creative Moments',
+                'description' => 'Arts, crafts & imagination',
+                'image_alt' => 'Child enjoying a creative activity',
                 'sort_order' => 1,
             ],
             [
@@ -470,9 +470,9 @@ class LandingPageSeeder extends Seeder
             ],
             [
                 'image' => 'images/gallery/gallery-3rmRs3fU.jpg',
-                'title' => 'Poolside Fun',
-                'description' => 'Safe & supervised water play',
-                'image_alt' => 'Children enjoying poolside activities',
+                'title' => 'Story Telling Time',
+                'description' => 'Imaginative play & learning through stories',
+                'image_alt' => 'Child enjoying a story time activity',
                 'sort_order' => 3,
             ],
             [
@@ -484,16 +484,16 @@ class LandingPageSeeder extends Seeder
             ],
             [
                 'image' => 'images/gallery/gallery-RzF739LH.jpg',
-                'title' => 'Family Adventures',
-                'description' => 'Making beautiful Bali memories',
-                'image_alt' => 'Family enjoying an outdoor adventure',
+                'title' => 'Little Explorers',
+                'description' => 'Outdoor discovery & meaningful play',
+                'image_alt' => 'Children exploring outdoors',
                 'sort_order' => 5,
             ],
             [
                 'image' => 'images/gallery/gallery-XrjV6wGZ.jpg',
-                'title' => 'Happy Little Hearts',
-                'description' => 'Warm, attentive & joyful care',
-                'image_alt' => 'Happy children playing together',
+                'title' => 'Yoga & Mindfulness',
+                'description' => 'Calm, focused & mindful moments',
+                'image_alt' => 'Children practicing yoga and mindfulness',
                 'sort_order' => 6,
             ],
             [
@@ -747,8 +747,8 @@ class LandingPageSeeder extends Seeder
 
         $aboutFeatures = [
             [
-                'title' => 'Safety First',
-                'description' => 'CPR & First Aid certified care with your child’s safety always our priority.',
+                'title' => 'Child Safety & Well-being',
+                'description' => 'We prioritize your child’s safety and well-being through attentive supervision, thoughtful care, and respect for their individual needs.',
                 'icon' => 'shield-check',
                 'sort_order' => 1,
             ],
@@ -792,29 +792,29 @@ class LandingPageSeeder extends Seeder
 
         $socialLinks = [
             [
-                'platform' => 'instagram',
-                'label' => 'Instagram',
-                'url' => 'https://www.instagram.com/neka_kharisma',
-                'sort_order' => 1,
-            ],
-            [
-                'platform' => 'threads',
-                'label' => 'Threads',
-                'url' => 'https://www.threads.com/@neka_kharisma',
-                'sort_order' => 2,
-            ],
-            [
                 'platform' => 'facebook',
                 'label' => 'Facebook',
                 'url' => 'https://facebook.com/menel.kharismaa',
-                'sort_order' => 3,
+                'sort_order' => 1,
             ],
             [
                 'platform' => 'youtube',
                 'label' => 'YouTube',
                 'url' => 'https://www.youtube.com/@nekakharisma',
-                'sort_order' => 4,
+                'sort_order' => 2,
             ],
+            // [
+            //     'platform' => 'instagram',
+            //     'label' => 'Instagram',
+            //     'url' => 'https://www.instagram.com/neka_kharisma',
+            //     'sort_order' => 3,
+            // ],
+            // [
+            //     'platform' => 'threads',
+            //     'label' => 'Threads',
+            //     'url' => 'https://www.threads.com/@neka_kharisma',
+            //     'sort_order' => 4,
+            // ],
         ];
 
         foreach ($socialLinks as $social) {
@@ -844,33 +844,34 @@ class LandingPageSeeder extends Seeder
                 'sort_order' => 1,
             ],
             [
+                'question' => 'What are your nanny rates per hour?',
+                'answer' => 'Our hourly rates depend on your childcare needs and booking details. Please contact us on WhatsApp for our current rates and a personalized quote. We’ll be happy to help you find the right care for your family.',
+                'sort_order' => 2,
+            ],
+            [
+                'question' => 'Is there a minimum number of hours per booking?',
+                'answer' => 'Minimum booking hours may vary depending on the type of service and availability. Please reach out to us on WhatsApp to confirm the minimum duration for your preferred booking.',
+                'sort_order' => 3,
+            ],
+            [
                 'question' => 'How far in advance should I book a nanny?',
                 'answer' => 'We recommend booking as early as possible, especially during weekends, school holidays, and peak travel periods. However, last-minute bookings may also be available depending on our nanny schedule.',
-                'sort_order' => 2,
+                'sort_order' => 4,
             ],
             [
                 'question' => 'What payment methods do you accept?',
                 'answer' => 'Payment arrangements can be discussed when you make your booking. Please contact us on WhatsApp and we will provide the available payment options for your reservation.',
-                'sort_order' => 3,
-            ],
-            [
-                'question' => 'Are your nannies CPR and First Aid certified?',
-                'answer' => 'Yes. Our nannies are CPR and First Aid certified, helping ensure that your children are cared for by professionals who understand how to respond to emergency situations.',
-                'sort_order' => 4,
+                'sort_order' => 5,
             ],
             [
                 'question' => 'Are the nannies background checked?',
                 'answer' => 'Yes. We conduct background checks as part of our commitment to providing families with trusted and professional childcare.',
-                'sort_order' => 5,
+                'sort_order' => 6,
+
             ],
             [
                 'question' => 'Can the nanny accompany us to a restaurant, wedding, or excursion?',
                 'answer' => 'Yes. Depending on availability, our nannies can provide childcare support during restaurants, weddings, private events, and family excursions. Please share your itinerary with us so we can discuss the arrangement.',
-                'sort_order' => 6,
-            ],
-            [
-                'question' => 'Can I request a nanny who speaks English?',
-                'answer' => 'Yes. English-speaking childcare can be requested. Please mention your language preference when contacting us so we can match your family with a suitable nanny.',
                 'sort_order' => 7,
             ],
         ];
@@ -895,12 +896,12 @@ class LandingPageSeeder extends Seeder
 
         $coverageAreas = [
             'Nusa Dua',
-            // 'Canggu',
-            // 'Seminyak',
-            // 'Ubud',
-            // 'Sanur',
-            // 'Uluwatu',
-            // 'Jimbaran',
+            'Canggu',
+            'Seminyak',
+            'Ubud',
+            'Sanur',
+            'Uluwatu',
+            'Jimbaran',
         ];
 
         foreach ($coverageAreas as $index => $area) {

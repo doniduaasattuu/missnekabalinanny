@@ -5,6 +5,7 @@ import {
     ShieldCheck,
     Users,
     SquareActivity,
+    HeartHandshake,
     type LucideIcon,
 } from "lucide-react";
 
@@ -13,6 +14,7 @@ const iconMap = {
     check: SquareActivity,
     clock: BadgeCheck,
     users: Users,
+    "heart-handshake": HeartHandshake,
 } as const;
 
 export type TrustBadgesProps = {

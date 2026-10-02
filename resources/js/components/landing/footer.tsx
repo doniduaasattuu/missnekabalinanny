@@ -19,7 +19,7 @@ export type FooterSectionProps = {
 };
 
 export default function Footer({
-    copyrightName = "Miss Neka Nanny Bali",
+    copyrightName = "Miss Neka Bali Nanny",
     privacyHref = "#",
     termsHref = "#",
 }: FooterSectionProps) {
