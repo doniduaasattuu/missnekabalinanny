@@ -5,10 +5,11 @@ import {
     Service,
     SocialLink,
 } from "@/types/landing-page";
-import { usePage } from "@inertiajs/react";
+import { router, usePage } from "@inertiajs/react";
 import { Heart, Mail, MapPin, MessageCircle } from "lucide-react";
 import SocialMedia from "./social-media";
 import Logo from "./logo";
+import { login } from "@/routes";
 
 export type FooterSectionProps = {
     brandName?: string;
@@ -202,7 +203,10 @@ export default function Footer({
                 )}
             </div>
 
-            <div className="border-t border-[#514B48] px-5 text-center text-xs text-[#756D69] space-y-3 py-4">
+            <div
+                onClick={() => router.get(login())}
+                className="border-t border-[#514B48] px-5 text-center text-xs text-[#756D69] space-y-3 py-4"
+            >
                 <p>
                     ©{currentYear} {copyrightName}. All rights reserved.
                 </p>

@@ -15,7 +15,7 @@ class AboutController extends Controller
         private readonly LandingPageService $landingPageService
     ) {}
 
-    public function index(): Response
+    public function about(): Response
     {
         return Inertia::render('about/index', [
             'whatsappUrl' => $this->landingPageService->getWhatsappUrl(),

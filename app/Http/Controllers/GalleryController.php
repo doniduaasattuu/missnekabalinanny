@@ -13,7 +13,7 @@ class GalleryController extends Controller
         private readonly GalleryService $galleryService
     ) {}
 
-    public function index(): Response
+    public function gallery(): Response
     {
         return Inertia::render(
             'gallery/index',

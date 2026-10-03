@@ -15,11 +15,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $defaultPassword = config('app.default_password', 'password');
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Neka Kharisma',
+            'email' => 'neka@gmail.com',
+            'password' => bcrypt($defaultPassword),
+            'email_verified_at' => now(),
         ]);
 
         $this->call([

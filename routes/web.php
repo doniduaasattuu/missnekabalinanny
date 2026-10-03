@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingPageController::class, 'index'])->name('home');
 
-Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
-Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/gallery', [GalleryController::class, 'gallery'])->name('gallery');
+Route::get('/about', [AboutController::class, 'about'])->name('about');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::inertia('dashboard', 'dashboard')->name('dashboard');

@@ -105,9 +105,9 @@ export default function Gallery({
                 <section className="px-6 pb-24 lg:px-8 lg:pb-32">
                     <div className="mx-auto max-w-7xl">
                         {galleryItems.length > 0 ? (
-                            <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-12 lg:gap-6">
+                            <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-22 lg:gap-4">
                                 {galleryItems.map((item, index) => {
-                                    const layout = index % 6;
+                                    const layout = index % 4;
 
                                     return (
                                         <button
