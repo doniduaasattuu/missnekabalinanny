@@ -216,7 +216,7 @@ class LandingPageSeeder extends Seeder
                 'label' => 'Testimonials',
                 'href' => '#testimonials',
                 'url' => '/testimonials',
-                'is_direct' => false,
+                'is_direct' => true,
                 'sort_order' => 5,
             ],
             [
