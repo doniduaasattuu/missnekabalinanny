@@ -18,13 +18,16 @@ class TestimonyController extends Controller
     public function testimonials(): Response
     {
         return Inertia::render('testimonials/index', [
-            'testimonials' => Testimonial::query()->get([
-                'id',
-                'image',
-                'image_alt',
-                'sort_order',
-                'is_active',
-            ])
+            'testimonials' => Testimonial::query()
+                ->where('is_active', true)
+                ->orderBy('sort_order')
+                ->get([
+                    'id',
+                    'image',
+                    'image_alt',
+                    'sort_order',
+                    'is_active',
+                ])
                 ->map(fn(Testimonial $item) => [
                     'id' => $item->id,
                     'image' => Storage::url($item->image),

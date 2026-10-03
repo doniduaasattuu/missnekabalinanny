@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\GalleryItem;
+use App\Models\SiteSetting;
 use Illuminate\Support\Facades\Storage;
 
 class GalleryService
@@ -11,6 +12,17 @@ class GalleryService
     {
         return [
             'galleryItems' => $this->getGalleryItems(),
+            'galleryVideo' => [
+                'url' => SiteSetting::query()
+                    ->where('key', 'gallery_video_url')
+                    ->value('value'),
+                'thumbnailUrl' => SiteSetting::query()
+                    ->where('key', 'gallery_video_thumbnail_url')
+                    ->value('value'),
+                'title' => SiteSetting::query()
+                    ->where('key', 'gallery_video_title')
+                    ->value('value') ?? 'A Glimpse of Life with Miss Neka',
+            ],
         ];
     }
 

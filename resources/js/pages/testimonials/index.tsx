@@ -85,8 +85,8 @@ export default function TestimonialsPage({
             <section className="pb-16 pt-32 bg-white">
                 {/* Hero */}
                 <section className="relative overflow-hidden border-b border-[#F0E8E4] ">
-                    <div className="pointer-events-none absolute -right-28 -top-32 size-105 rounded-full bg-[#FBEFF2]/70 blur-3xl" />
-                    <div className="pointer-events-none absolute -bottom-40 -left-32 size-95 rounded-full bg-[#F5E9E1]/70 blur-3xl" />
+                    {/* <div className="pointer-events-none absolute -right-28 -top-32 size-105 rounded-full bg-[#FBEFF2]/70 blur-3xl" />
+                    <div className="pointer-events-none absolute -bottom-40 -left-32 size-95 rounded-full bg-[#F5E9E1]/70 blur-3xl" /> */}
 
                     <div className="relative mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[1fr_360px] lg:items-center lg:gap-16 lg:px-12 lg:py-24">
                         <div className="max-w-3xl">

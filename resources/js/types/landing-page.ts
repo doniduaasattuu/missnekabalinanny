@@ -185,3 +185,9 @@ export interface AboutVideo {
     label: string;
     is_active: boolean;
 }
+
+export type GalleryVideo = {
+    url: string | null;
+    thumbnailUrl: string | null;
+    title: string;
+};

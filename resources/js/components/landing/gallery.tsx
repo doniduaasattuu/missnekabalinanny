@@ -73,7 +73,7 @@ export default function GallerySection({
                         {items.map((item, index) => {
                             if (isMobile && index > 3) {
                                 return null;
-                            } else if (!isMobile && index > 5) {
+                            } else if (!isMobile && index > 6) {
                                 return null;
                             }
 
@@ -103,7 +103,7 @@ export default function GallerySection({
                                     }
                                 >
                                     <img
-                                        src={`/storage/${item.image}`}
+                                        src={item.image}
                                         alt={item.imageAlt ?? item.title}
                                         loading={index < 3 ? "eager" : "lazy"}
                                         className={`w-full object-cover transition duration-700 group-hover:scale-105 ${

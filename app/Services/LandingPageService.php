@@ -148,7 +148,7 @@ class LandingPageService
             ])
             ->map(fn(GalleryItem $item) => [
                 'id' => $item->id,
-                'image' => $item->image,
+                'image' => Storage::url($item->image),
                 'title' => $item->title,
                 'description' => $item->description,
                 'imageAlt' => $item->image_alt,

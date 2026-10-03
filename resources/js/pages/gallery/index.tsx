@@ -8,30 +8,21 @@ import type {
     SocialLink,
     FooterContact,
     Service,
+    GalleryVideo,
 } from "@/types/landing-page";
 import { Head } from "@inertiajs/react";
+import GalleryHeroVideo from "@/components/gallery/gallery-hero-video";
 
 interface GalleryPageProps {
+    galleryVideo: GalleryVideo;
     galleryItems: GalleryItem[];
-
-    navigationLinks: NavigationLink[];
-
     whatsappUrl: string;
-
-    services: Service[];
-    SocialLinks: SocialLink[];
-    footerContact: FooterContact;
-    coverageAreas: string[];
 }
 
 export default function Gallery({
+    galleryVideo,
     galleryItems,
-    navigationLinks,
     whatsappUrl,
-    services,
-    SocialLinks,
-    footerContact,
-    coverageAreas,
 }: GalleryPageProps) {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
@@ -69,18 +60,16 @@ export default function Gallery({
 
             <main className="bg-[#fbf6f9]">
                 {/* Hero */}
-                <section className="relative overflow-hidden px-6 pb-16 pt-32 lg:px-8 lg:pb-24 lg:pt-40">
-                    <div className="absolute right-0 top-20 size-96 rounded-full bg-pink-300/30 blur-[92px]" />
-
-                    <div className="relative mx-auto max-w-7xl">
+                <section className="relative isolate overflow-hidden bg-[#FCF7FA] px-6 pb-16 pt-28 sm:pt-32 lg:px-8 lg:pb-24 lg:pt-36">
+                    <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(280px,360px)] lg:gap-20">
                         <div className="max-w-3xl">
-                            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-pink-500">
+                            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-pink-500 sm:text-sm">
                                 Our Gallery
                             </p>
 
                             <h1 className="font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl">
                                 Moments worth
-                                <span className="block text-pink-500">
+                                <span className="mt-1 block text-pink-500">
                                     remembering.
                                 </span>
                             </h1>
@@ -89,15 +78,24 @@ export default function Gallery({
                                 A glimpse into the warm, playful, and caring
                                 moments we create with families throughout Bali.
                             </p>
+
+                            <div className="mt-10 flex items-center gap-4">
+                                <span className="h-px w-12 bg-pink-500" />
+                                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                                    Moments{" "}
+                                    <span className="text-pink-400">•</span>{" "}
+                                    Memories{" "}
+                                    <span className="text-pink-400">•</span>{" "}
+                                    Care
+                                </span>
+                            </div>
                         </div>
 
-                        <div className="mt-10 flex items-center gap-4">
-                            <span className="h-px w-12 bg-pink-500" />
-
-                            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
-                                Moments • Memories • Care
-                            </span>
-                        </div>
+                        {galleryVideo?.url && (
+                            <div className="w-full">
+                                <GalleryHeroVideo video={galleryVideo} />
+                            </div>
+                        )}
                     </div>
                 </section>
 
@@ -105,10 +103,8 @@ export default function Gallery({
                 <section className="px-6 pb-24 lg:px-8 lg:pb-32">
                     <div className="mx-auto max-w-7xl">
                         {galleryItems.length > 0 ? (
-                            <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-22 lg:gap-4">
+                            <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-12 lg:gap-4">
                                 {galleryItems.map((item, index) => {
-                                    const layout = index % 4;
-
                                     return (
                                         <button
                                             key={item.id}
@@ -119,17 +115,7 @@ export default function Gallery({
                                             className={[
                                                 "group relative overflow-hidden rounded-2xl bg-slate-100 text-left",
                                                 "focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-4",
-                                                layout === 0
-                                                    ? "col-span-2 aspect-16/10 lg:col-span-7 lg:row-span-2 lg:aspect-auto"
-                                                    : layout === 1
-                                                      ? "col-span-1 aspect-square lg:col-span-5"
-                                                      : layout === 2
-                                                        ? "col-span-1 aspect-square lg:col-span-5"
-                                                        : layout === 3
-                                                          ? "col-span-2 aspect-16/10 lg:col-span-5"
-                                                          : layout === 4
-                                                            ? "col-span-1 aspect-square lg:col-span-3"
-                                                            : "col-span-1 aspect-square lg:col-span-4",
+                                                "col-span-1 aspect-square lg:col-span-3",
                                             ].join(" ")}
                                         >
                                             <img
@@ -146,19 +132,19 @@ export default function Gallery({
                                             <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                                             <div className="absolute inset-x-0 bottom-0 translate-y-3 p-5 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 lg:p-6">
-                                                <p className="font-serif text-xl font-semibold text-white">
+                                                <p className="font-serif text-base sm:text-xl font-semibold text-white">
                                                     {item.title}
                                                 </p>
 
                                                 {item.description && (
-                                                    <p className="mt-1 text-sm text-white/75">
+                                                    <p className="mt-1 text-xs sm:text-sm text-white/75">
                                                         {item.description}
                                                     </p>
                                                 )}
                                             </div>
 
-                                            <span className="absolute right-4 top-4 flex size-9 items-center justify-center rounded-full bg-white/90 text-slate-950 opacity-0 shadow-lg transition-opacity duration-300 group-hover:opacity-100">
-                                                <ArrowRight className="size-4" />
+                                            <span className="absolute right-4 top-4 flex size-6 sm:size-9 items-center justify-center rounded-full bg-white/90 text-slate-950 opacity-0 shadow-lg transition-opacity duration-300 group-hover:opacity-100">
+                                                <ArrowRight className="size-3 sm:size-4" />
                                             </span>
                                         </button>
                                     );

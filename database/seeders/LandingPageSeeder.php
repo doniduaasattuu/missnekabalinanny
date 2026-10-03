@@ -163,6 +163,23 @@ class LandingPageSeeder extends Seeder
                 'value' => 'Nothing makes us happier than knowing families feel comfortable, confident, and cared for. Read the experiences and heartfelt words from the families we have been honoured to serve.',
                 'type' => 'string',
             ],
+
+            // Gallery
+            [
+                'key' => 'gallery_video_url',
+                'value' => 'https://www.youtube.com/shorts/68nkn5rxST4', // Masukkan URL YouTube Shorts
+                'type' => 'string',
+            ],
+            [
+                'key' => 'gallery_video_thumbnail_url',
+                'value' => null, // Opsional: URL thumbnail khusus
+                'type' => 'string',
+            ],
+            [
+                'key' => 'gallery_video_title',
+                'value' => 'A Glimpse of Life with Miss Neka',
+                'type' => 'string',
+            ],
         ];
 
         foreach ($siteSettings as $setting) {
@@ -968,15 +985,12 @@ class LandingPageSeeder extends Seeder
             'wA4kPc8L',
             'xH2mTq7V',
             'yJ9bNg5D',
-            'zL3rWf1K',
             'AB7cXm4P',
             'CD2vQn8R',
             'EF5hYk1M',
             'GH9pLs3T',
-            'JK4wZa6B',
             'LM1xRc7N',
             'NP8qVf2D',
-            // 'QR3mHg5Y',
         ];
 
         $rows = [];
