@@ -93,12 +93,8 @@ export interface GalleryItem {
 
 export interface Testimonial {
     id: number;
-    name: string;
-    country: string;
-    quote: string;
-    avatar: string | null;
-    avatar_alt: string | null;
-    rating: number;
+    image: string;
+    image_alt: string;
     sort_order: number;
     is_active: boolean;
     created_at: string;

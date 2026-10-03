@@ -12,6 +12,7 @@ use App\Models\SiteSetting;
 use App\Models\SocialLink;
 use App\Models\Testimonial;
 use App\Models\TrustBadge;
+use Illuminate\Support\Facades\Storage;
 
 class LandingPageService
 {
@@ -162,21 +163,13 @@ class LandingPageService
             ->orderBy('sort_order')
             ->get([
                 'id',
-                'name',
-                'country',
-                'quote',
-                'avatar',
-                'avatar_alt',
-                'rating',
+                'image',
+                'image_alt',
             ])
             ->map(fn(Testimonial $testimonial) => [
                 'id' => $testimonial->id,
-                'name' => $testimonial->name,
-                'country' => $testimonial->country,
-                'quote' => $testimonial->quote,
-                'avatar' => $testimonial->avatar,
-                'avatarAlt' => $testimonial->avatar_alt,
-                'rating' => $testimonial->rating,
+                'image' => Storage::url($testimonial->image),
+                'image_alt' => $testimonial->image_alt,
             ])
             ->values();
     }

@@ -156,19 +156,10 @@ return new class extends Migration
 
         Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
-
-            $table->string('name');
-            $table->string('country');
-            $table->text('quote');
-
-            $table->string('avatar')->nullable();
-            $table->string('avatar_alt')->nullable();
-
-            $table->unsignedTinyInteger('rating')->default(5);
-
+            $table->string('image');
+            $table->string('image_alt')->nullable();
             $table->unsignedInteger('sort_order')->default(0);
             $table->boolean('is_active')->default(true);
-
             $table->timestamps();
         });
 
