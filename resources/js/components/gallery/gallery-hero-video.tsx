@@ -71,7 +71,7 @@ export default function GalleryHeroVideo({ video }: GalleryHeroVideoProps) {
                     <iframe
                         src={embedUrl}
                         title={video.title}
-                        className="absolute mx-auto inset-0 size-full"
+                        className="absolute mx-auto inset-0 size-full scale-110"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
                         referrerPolicy="strict-origin-when-cross-origin"
@@ -87,7 +87,7 @@ export default function GalleryHeroVideo({ video }: GalleryHeroVideoProps) {
                             src={thumbnail}
                             alt=""
                             loading="lazy"
-                            className="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            className="absolute inset-0 size-full object-cover transition-transform duration-700 scale-105 group-hover:scale-110"
                         />
 
                         <div className="absolute inset-0 bg-black/20 transition-colors group-hover:bg-black/35" />
