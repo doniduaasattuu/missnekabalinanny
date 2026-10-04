@@ -22,6 +22,7 @@ import {
     Testimonial,
     TrustBadge,
 } from "@/types/landing-page";
+import { Head } from "@inertiajs/react";
 
 export type LandingPageProps = {
     whatsappUrl: string;
@@ -67,6 +68,7 @@ export default function LandingPage({
 }: LandingPageProps) {
     return (
         <div className="min-h-screen bg-[#FFF9F5] text-[#292524]">
+            <Head title="Home" />
             <main>
                 <HeroSection slides={heroSlides} whatsappUrl={whatsappUrl} />
 

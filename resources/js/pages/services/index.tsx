@@ -52,7 +52,7 @@ export default function ServicesIndex({
 
     return (
         <>
-            <Head title="Our Services | Miss Neka Bali Nanny" />
+            <Head title="Services" />
 
             <main className="min-h-screen bg-[#FBF3F5]">
                 {/* Hero */}

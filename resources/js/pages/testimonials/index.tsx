@@ -82,7 +82,7 @@ export default function TestimonialsPage({
                 />
             </Head>
 
-            <section className="pb-16 pt-32 bg-white">
+            <section className="pb-16 pt-16 bg-white">
                 {/* Hero */}
                 <section className="relative overflow-hidden border-b border-[#F0E8E4] ">
                     {/* <div className="pointer-events-none absolute -right-28 -top-32 size-105 rounded-full bg-[#FBEFF2]/70 blur-3xl" />

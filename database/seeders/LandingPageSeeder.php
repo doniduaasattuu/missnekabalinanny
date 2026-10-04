@@ -239,8 +239,8 @@ class LandingPageSeeder extends Seeder
             [
                 'label' => 'FAQ',
                 'href' => '#faq',
-                'url' => '/faq',
-                'is_direct' => false,
+                'url' => '/faqs',
+                'is_direct' => true,
                 'sort_order' => 6,
             ],
         ];
