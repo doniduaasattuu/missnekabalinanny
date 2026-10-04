@@ -219,7 +219,7 @@ class LandingPageSeeder extends Seeder
                 'label' => 'Services',
                 'href' => '#services',
                 'url' => '/services',
-                'is_direct' => false,
+                'is_direct' => true,
                 'sort_order' => 3,
             ],
             [
